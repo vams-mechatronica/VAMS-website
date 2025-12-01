@@ -1,0 +1,54 @@
+.header {
+    background: white;
+    padding: 18px 0;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.nav a {
+    margin-left: 18px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.contact-btn {
+    margin-left: 22px;
+    background: var(--secondary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.mobile-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+}
+
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+}
