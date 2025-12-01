@@ -235,3 +235,60 @@
     width: 100%;
   }
 }
+.logo-strip {
+  width: 100%;
+  padding: 40px 0;
+  background: black; /* Dark background like screenshot */
+  overflow: hidden;
+  position: relative;
+}
+
+.slider {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(200%); /* Because logos array is doubled */
+  animation: scroll 120s linear infinite;
+}
+
+.slide-track img {
+  height: 45px;
+  margin: 0 60px;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: 0.3s ease;
+}
+
+.slide-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Smooth left scroll */
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.logo-strip::before,
+.logo-strip::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+}
+
+.logo-strip::before {
+  left: 0;
+  background: linear-gradient(to right, #0d1117, transparent);
+}
+
+.logo-strip::after {
+  right: 0;
+  background: linear-gradient(to left, #0d1117, transparent);
+}

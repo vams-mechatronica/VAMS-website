@@ -1,13 +1,27 @@
-<section class="rtm-hero">
-  <div class="overlay"></div>
-  <div class="content">
-    <h1>Real-Time Monitoring</h1>
-    <p>
-      Gain complete visibility across your machines, operations, and production
-      workflows with live dashboards, alerts, and deep analytics powered by 
-      Industry 4.0 and IIoT intelligence.
-    </p>
-    <button class="cta">Request Live Demo</button>
+
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-left">
+      <h1>Real-Time Monitoring</h1>
+      <p>
+        Gain complete visibility across your machines, operations, and production
+        workflows with live dashboards, alerts, and deep analytics powered by
+        Industry 4.0 and IIoT intelligence.
+      </p>
+
+      <div class="hero-cta">
+        <button class="cta-btn">Get a Consultation</button>
+        <a class="ghost-btn" href="#contact">Download Brochure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logo-strip">
+  <div class="slider">
+    <div class="slide-track">
+      <img *ngFor="let logo of loopLogos" [src]="logo" />
+    </div>
   </div>
 </section>
 
@@ -33,55 +47,70 @@
   </div>
 </section>
 
+
+
 <section class="rtm-features container">
   <h2 class="section-title">Core Features</h2>
 
   <div class="features-grid">
-
-    <div class="feature-box">
-      <i class="fa-solid fa-chart-line icon"></i>
+    <div class="feature">
+      <div class="icon-box">
+        <i class="fa-solid fa-chart-line icon"></i>
+      </div>
       <h3>Live Dashboards</h3>
       <p>Monitor machine health, energy usage, KPIs, cycle times and more with beautiful real-time charts.</p>
-      <a class="learn" href="#">Learn More →</a>
+      <a class="learn-more" href="#">Learn More →</a>
     </div>
 
-    <div class="feature-box">
-      <i class="fa-solid fa-bell icon"></i>
+    <div class="feature">
+      <div class="icon-box">
+        <i class="fa-solid fa-bell icon"></i>
+      </div>
       <h3>Instant Alerts</h3>
       <p>Get immediate notifications for breakdowns, anomalies, idle machines, or threshold violations.</p>
-      <a class="learn" href="#">Learn More →</a>
+      <a class="learn-more" href="#">Learn More →</a>
     </div>
 
-    <div class="feature-box">
-      <i class="fa-solid fa-microchip icon"></i>
+    <div class="feature">
+      <div class="icon-box">
+        <i class="fa-solid fa-microchip icon"></i>
+      </div>
       <h3>Edge & Cloud Sync</h3>
       <p>Ultra-low latency edge gateways ensure reliable data even if internet connectivity drops.</p>
-      <a class="learn" href="#">Learn More →</a>
+      <a class="learn-more" href="#">Learn More →</a>
     </div>
 
-    <div class="feature-box">
-      <i class="fa-solid fa-server icon"></i>
+    <div class="feature">
+      <div class="icon-box">
+        <i class="fa-solid fa-server icon"></i>
+      </div>
       <h3>Multi-Protocol Support</h3>
       <p>Seamless integration with OPC-UA, Modbus, MQTT, REST APIs, PLCs and industrial robots.</p>
-      <a class="learn" href="#">Learn More →</a>
+      <a class="learn-more" href="#">Learn More →</a>
     </div>
 
-    <div class="feature-box">
-      <i class="fa-solid fa-gauge icon"></i>
+    <div class="feature">
+      <div class="icon-box">
+        <i class="fa-solid fa-gauge icon"></i>
+      </div>
       <h3>KPI Tracking</h3>
       <p>Track OEE, Productivity, Quality Index, Downtime Metrics and custom production KPIs.</p>
-      <a class="learn" href="#">Learn More →</a>
+      <a class="learn-more" href="#">Learn More →</a>
     </div>
 
-    <div class="feature-box">
-      <i class="fa-solid fa-diagram-project icon"></i>
+    <div class="feature">
+      <div class="icon-box">
+        <i class="fa-solid fa-diagram-project icon"></i>
+      </div>
       <h3>Digital Twin View</h3>
       <p>Visualize factory layout, machine states and live events in a digital twin 3D interface.</p>
-      <a class="learn" href="#">Learn More →</a>
+      <a class="learn-more" href="#">Learn More →</a>
     </div>
+
 
   </div>
 </section>
+
 
 <section class="cta-banner">
   <div class="cta-content">
