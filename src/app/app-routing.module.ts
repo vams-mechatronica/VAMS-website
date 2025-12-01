@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RealtimeMonitoringComponent } from './features/products/pages/realtime-monitoring/realtime-monitoring.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,10 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () =>
       import('./features/contact/contact.module').then((m) => m.ContactModule),
-  },
+  }, {
+    path: 'real-time-monitoring',
+    component: RealtimeMonitoringComponent
+  }
 ];
 
 @NgModule({
