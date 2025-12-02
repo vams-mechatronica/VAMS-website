@@ -1,1 +1,51 @@
-<p>case-studies works!</p>
+<section class="cs-hero">
+  <div class="overlay"></div>
+  <div class="content container">
+    <h1>Case Studies</h1>
+    <p>
+      Discover how industries use our automation, IoT and AI platforms to improve efficiency,
+      reduce downtime and accelerate digital transformation.
+    </p>
+  </div>
+</section>
+
+<section class="container cs-filter">
+  <h2>Industries</h2>
+
+  <div class="filters">
+    <button
+      *ngFor="let industry of industries"
+      [class.active]="industry === selectedIndustry"
+      (click)="changeIndustry(industry)"
+    >
+      {{ industry }}
+    </button>
+  </div>
+</section>
+
+<section class="container cs-grid">
+  <div class="card" *ngFor="let cs of filteredCaseStudies">
+    <img [src]="cs.image" alt="{{ cs.title }}">
+    <div class="content">
+      <h3>{{ cs.title }}</h3>
+      <span class="tag">{{ cs.industry }}</span>
+      <p>{{ cs.description }}</p>
+
+      <ul>
+        <li *ngFor="let k of cs.kpis">
+          <i class="fas fa-check-circle"></i> {{ k }}
+        </li>
+      </ul>
+
+      <a class="view-btn" href="#">View Full Report</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Want to Transform Your Factory?</h2>
+    <p>Download our industrial automation success stories & case study booklet.</p>
+    <a href="/assets/brochure.pdf" download class="cta-btn">Download Brochure</a>
+  </div>
+</section>

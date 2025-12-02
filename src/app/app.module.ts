@@ -13,11 +13,12 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
 import { RealtimeMonitoringComponent } from './features/products/pages/realtime-monitoring/realtime-monitoring.component';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent, 
+    ShellComponent,
     RealtimeMonitoringComponent
   ],
   imports: [
@@ -25,7 +26,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule, RouterOutlet
+    SharedModule, RouterOutlet, ReactiveFormsModule
   ],
   providers: [
     provideHttpClient(withFetch()),

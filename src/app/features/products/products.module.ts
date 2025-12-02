@@ -8,6 +8,8 @@ import { PredictiveMaintenanceComponent } from './pages/predictive-maintenance/p
 import { ProductionSchedulingComponent } from './pages/production-scheduling/production-scheduling.component';
 import { MaterialRfidTrackingComponent } from './pages/material-rfid-tracking/material-rfid-tracking.component';
 import { EnergyMonitoringComponent } from './pages/energy-monitoring/energy-monitoring.component';
+import { RealTimeMonitoringDetailsComponent } from './pages/realtime-monitoring/real-time-monitoring-details/real-time-monitoring-details.component';
+import { PredictiveMaintenanceDetailsComponent } from './pages/predictive-maintenance/predictive-maintenance-details/predictive-maintenance-details.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { EnergyMonitoringComponent } from './pages/energy-monitoring/energy-moni
     PredictiveMaintenanceComponent,
     ProductionSchedulingComponent,
     MaterialRfidTrackingComponent,
-    EnergyMonitoringComponent
+    EnergyMonitoringComponent,
+    RealTimeMonitoringDetailsComponent,
+    PredictiveMaintenanceDetailsComponent
   ],
   imports: [
     CommonModule,
