@@ -1,25 +1,43 @@
 .header {
     background: white;
-    padding: 18px 0;
+    height: 70px;
+    display: flex;
+    align-items: center; // center items vertically
+    padding: 0;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
     position: sticky;
     top: 0;
     z-index: 50;
+    overflow: visible; // allow logo to overflow outside the header
 }
 
 .header-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: center; // vertical center
+    justify-content: flex-end;
+    width: 100%;
+    position: relative;
 }
 
-.logo {
-    font-family: Poppins, sans-serif;
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 20px;
+/* ⭐ LOGO BOX — still here! */
+.logo-box {
+    position: absolute;
+    left: 5%;
+    top: 5%; // center relative to navbar
+    transform: translateY(40%); // move 40% down → 50% inside + 50% outside
+    z-index: 200;
+    background-color: white;
+    border-radius: 7px;
+    opacity: 0.8;
+
+    img {
+        height: 80px; // big logo
+        width: auto;
+        display: block;
+    }
 }
 
+/* NAVIGATION */
 .nav a {
     margin-left: 18px;
     text-decoration: none;
@@ -30,9 +48,9 @@
 .contact-btn {
     margin-left: 22px;
     background: var(--secondary);
-    padding: 8px 16px;
+    padding: 6px 14px;
     border-radius: 6px;
-    color: #fff;
+    color: white !important;
 }
 
 .mobile-toggle {
@@ -42,7 +60,7 @@
     font-size: 22px;
 }
 
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .nav {
         display: none;
@@ -50,5 +68,14 @@
 
     .mobile-toggle {
         display: block;
+    }
+
+    /* Smaller floating logo on mobile */
+    .logo-box img {
+        height: 60px;
+    }
+
+    .logo-box {
+        transform: translateY(35%);
     }
 }

@@ -21,6 +21,17 @@ export class HomeComponent {
   // Duplicate logos to make infinite loop seamless
   loopLogos = [...this.logos, ...this.logos];
 
+  introImage: string = 'assets/images/digital_factory.jpg';
+  missionImage: string = 'assets/images/mission_vams.jpeg';
+
+  missionHighlights = [
+    { icon: 'fa-lightbulb', label: 'Innovation-Driven Solutions' },
+    { icon: 'fa-industry', label: 'Digital Factory Enablement' },
+    { icon: 'fa-chart-line', label: 'Operational Excellence' },
+    { icon: 'fa-shield-halved', label: 'Reliable & Secure Systems' },
+  ];
+
+
   constructor() {}
 
   ngOnInit() {

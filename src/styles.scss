@@ -2,28 +2,41 @@
 
 
 :root {
---primary: #0A3D62;
---secondary: #2ECC71;
---highlight: #00E6E6;
---text-dark: #1A1A1A;
---background-light: #F5F7FA;
+    --primary: #0A3D62;
+    --secondary: #2FA15A;
+    --highlight: #00E6E6;
+    --text-dark: #1A1A1A;
+    --background-light: #F5F7FA;
 }
 
 
-html, body { height: 100%; }
+html,
 body {
-margin: 0;
-font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-background: var(--background-light);
-color: var(--text-dark);
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: var(--background-light);
+    color: var(--text-dark);
 }
 
 
-.container { width: 92%; max-width: 1200px; margin: 0 auto; }
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 
-a { color: inherit; }
+a {
+    color: inherit;
+}
 
 
 /* small utility */
-.flex { display: flex; align-items: center; }
+.flex {
+    display: flex;
+    align-items: center;
+}

@@ -49,11 +49,57 @@
     </div>
   </div>
 </section>
+<section class="intro-mission container">
+
+  <!-- Introduction Section -->
+  <div class="intro-section">
+    <div class="intro-text">
+      <h2>About VAMS Mechatronica</h2>
+      <p>
+        We empower industries with next-generation automation, Industry 4.0 solutions, and intelligent
+        factory platforms. Our mission is to transform manufacturing ecosystems with real-time visibility,
+        predictive intelligence, and seamless digital integration.
+      </p>
+      <p>
+        From machine connectivity to smart analytics, we deliver scalable, high-performance solutions tailored
+        for future-ready factories.
+      </p>
+    </div>
+
+    <div class="intro-image">
+      <img [src]="introImage" alt="Industry Introduction Image" />
+    </div>
+  </div>
+
+  <!-- Mission Section -->
+  <div class="mission-section">
+    <div class="mission-image">
+      <img [src]="missionImage" alt="Mission Image" />
+    </div>
+
+    <div class="mission-text">
+      <h2>Our Mission</h2>
+      <p>
+        To accelerate the digital transformation of manufacturing by integrating automation, robotics, IoT,
+        and AI-driven insights—empowering organizations to achieve greater efficiency, reliability, and
+        operational excellence.
+      </p>
+
+      <div class="mission-highlights">
+        <div class="highlight" *ngFor="let item of missionHighlights">
+          <i class="fa-solid" [ngClass]="item.icon"></i>
+          <span>{{ item.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
 
 
 
 
-<section class="features container">
+<section class="features container" id="services">
   <h2 class="section-title">Our Capabilities</h2>
 
   <div class="features-grid">
