@@ -16,7 +16,7 @@
   min-height: 520px;
   display: flex;
   align-items: center;
-  background: url('https://static.wixstatic.com/media/ae70db_5117e195a6d0491ab2fad08a103127bc~mv2.jpg/v1/fill/w_950,h_763,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ae70db_5117e195a6d0491ab2fad08a103127bc~mv2.jpg') center/cover no-repeat;
+  background: url('/assets/images/siemens-sinumerik-cnc.jpg') center/cover no-repeat;
   filter: grayscale(70%); // makes bg grayscale
 }
 
@@ -399,5 +399,37 @@
     .mission-text .mission-highlights {
       grid-template-columns: 1fr;
     }
+  }
+}
+
+
+.cta-banner {
+  background: linear-gradient(to right, #0A4D2E, #2FA15A);
+  padding: 60px 20px;
+  margin-top: 80px;
+  text-align: center;
+  color: #fff;
+
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 17px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .cta {
+    padding: 12px 30px;
+    background: #fff;
+    color: #2FA15A;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
   }
 }

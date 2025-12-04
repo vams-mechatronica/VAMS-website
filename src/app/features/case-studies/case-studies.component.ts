@@ -26,7 +26,7 @@ industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineeri
       description:
         'Implemented vibration & energy monitoring on CNC turning centers, reducing machine downtime by 38% and improving OEE by 22%.',
       kpis: ['Downtime reduced 38%', 'OEE improved 22%', 'ROI in 5.5 months'],
-      image: '/assets/case-studies/cnc.jpg'
+      image: '/assets/case-studies/cnc-monitoring.jpg'
     },
     {
       title: 'Smart Energy Monitoring for Process Plant',
@@ -34,7 +34,7 @@ industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineeri
       description:
         'Deployed energy meters across multiple lines to track load patterns and detect inefficiencies.',
       kpis: ['Energy savings 17%', 'Zero unplanned outages', '150+ sensors deployed'],
-      image: '/assets/case-studies/energy.jpg'
+      image: '/assets/case-studies/enerygy-monitoring.jpg'
     },
     {
       title: 'IoT-Based Loom Monitoring',
@@ -42,7 +42,7 @@ industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineeri
       description:
         'Real-time monitoring of spindle speed, yarn breakage alerts, and machine runtime data.',
       kpis: ['Breakdowns reduced 31%', 'Production output +18%', 'Quality defects -22%'],
-      image: '/assets/case-studies/loom.jpg'
+      image: '/assets/case-studies/loom-monitoring.jpg'
     },
     {
       title: 'Machine Vision for Packaging Line',
@@ -50,7 +50,7 @@ industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineeri
       description:
         'High-speed vision system for label verification, OCR, expiry validation, and defect detection.',
       kpis: ['99.6% detection accuracy', 'Production speed 300+ packs/min', 'False rejects -45%'],
-      image: '/assets/case-studies/vision.jpg'
+      image: '/assets/case-studies/packaging.avif'
     }
   ];
 
