@@ -1,0 +1,275 @@
+.about-container {
+  padding: 0 80px;
+}
+
+/* HEADER */
+.about-header {
+  position: relative;
+  height: 280px;
+  background: url('/assets/images/contact-us.jpg') center/cover no-repeat;
+  filter: grayscale(30%);
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 20, 40, 0.6);
+  }
+
+  .content {
+    position: relative;
+    text-align: center;
+    padding-top: 80px;
+    color: #fff;
+
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 18px;
+      opacity: 0.9;
+    }
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 20px;
+  gap: 40px;
+
+  .hero-content {
+    flex: 1;
+
+    h1 {
+      font-size: 48px;
+      color: #0a2342;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    p {
+      max-width: 600px;
+      line-height: 1.7;
+      font-size: 18px;
+      color: #333;
+    }
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+
+/* Company Overview */
+.company-overview {
+  padding: 60px 20px;
+
+  h2 {
+    text-align: left;
+    font-size: 36px;
+    color: #0a2342;
+    margin-bottom: 20px;
+  }
+
+  .overview-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    .overview-text {
+      flex: 1;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .overview-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 10px;
+    }
+  }
+}
+
+/* Mission & Vision */
+.mission-vision {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+
+  .mv-card {
+    background: #f6f9fc;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    h3 {
+      font-size: 26px;
+      color: #0a2342;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 17px;
+      color: #444;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Values Section */
+.values-section {
+  padding: 60px 20px;
+
+  h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #0a2342;
+    margin-bottom: 40px;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+
+    .value-card {
+      background: #eef4fb;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+
+      h4 {
+        font-size: 22px;
+        color: #0a2342;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #444;
+        line-height: 1.5;
+      }
+
+      &:hover {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
+
+/* Why Us Section */
+.why-us-section {
+  padding: 60px 20px;
+
+  h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #0a2342;
+    margin-bottom: 40px;
+  }
+
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+
+    .why-card {
+      text-align: center;
+      padding: 20px;
+      background: #f8fafc;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: 0.3s;
+
+      img {
+        width: 60px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+
+    .hero-content p {
+      margin: 0 auto;
+    }
+  }
+
+  .company-overview .overview-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mission-vision {
+    flex-direction: column;
+  }
+}
+
+.cta-banner {
+  background: linear-gradient(to right, #0A4D2E, #2FA15A);
+  padding: 60px 20px;
+  margin-top: 80px;
+  text-align: center;
+  color: #fff;
+
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 17px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .cta {
+    padding: 12px 30px;
+    background: #fff;
+    color: #2FA15A;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

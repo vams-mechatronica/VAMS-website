@@ -44,11 +44,15 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () =>
       import('./features/contact/contact.module').then((m) => m.ContactModule),
-  }, 
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'top',
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 0]
+  })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
