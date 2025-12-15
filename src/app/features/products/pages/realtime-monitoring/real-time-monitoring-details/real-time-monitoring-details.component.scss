@@ -102,18 +102,62 @@
 }
 
 /* MODULES */
+.modules {
+  padding: 60px 0;
+
+  h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+}
+
 .module-item {
-  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.module-content {
+  flex: 1;
 
   h3 {
     font-size: 22px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  ul li {
-    margin-bottom: 6px;
+  ul {
+    padding-left: 18px;
+
+    li {
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: #444;
+    }
   }
 }
+
+.module-media {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    background: #f9fafb;
+    object-fit: cover;
+  }
+}
+
 
 /* USE CASES */
 .usecase-list {
