@@ -1,6 +1,7 @@
 <header class="header">
   <div class="container header-content">
 
+    <!-- Desktop Navigation -->
     <nav class="nav">
       <a href="#solutions">Solutions</a>
       <a href="#services">Services</a>
@@ -9,10 +10,28 @@
       <a [routerLink]="['/contact']" class="contact-btn">Contact Us</a>
     </nav>
 
-    <button class="mobile-toggle" aria-label="Open menu">☰</button>
+    <!-- Mobile Toggle -->
+    <button
+      class="mobile-toggle"
+      aria-label="Toggle menu"
+      (click)="toggleMenu()"
+    >
+      ☰
+    </button>
   </div>
 
-  <!-- Floating Logo Box -->
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" *ngIf="isMenuOpen">
+    <a href="#solutions" (click)="closeMenu()">Solutions</a>
+    <a href="#services" (click)="closeMenu()">Services</a>
+    <a href="#industries" (click)="closeMenu()">Industries</a>
+    <a [routerLink]="['/case-studies']" (click)="closeMenu()">Case Studies</a>
+    <a [routerLink]="['/contact']" class="contact-btn" (click)="closeMenu()">
+      Contact Us
+    </a>
+  </nav>
+
+  <!-- Floating Logo -->
   <div class="logo-box">
     <img src="assets/logos/VAMS_new_logo.png" alt="VAMS Mechatronica" />
   </div>

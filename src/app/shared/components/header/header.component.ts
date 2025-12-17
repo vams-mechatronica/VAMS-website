@@ -26,7 +26,13 @@ export class HeaderComponent {
     { label: 'Blog Details', route: '/blog-details' },
   ];
 
-  toggleMobile() {
-    this.mobile = !this.mobile;
+  isMenuOpen = false;
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
   }
 }

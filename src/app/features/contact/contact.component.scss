@@ -1,4 +1,6 @@
-/* HEADER */
+/* ================================
+   HEADER
+================================ */
 .contact-header {
   position: relative;
   height: 280px;
@@ -14,7 +16,7 @@
   .content {
     position: relative;
     text-align: center;
-    padding-top: 80px;
+    padding: 80px 20px 0;
     color: #fff;
 
     h1 {
@@ -30,7 +32,9 @@
   }
 }
 
-/* MAIN CONTACT SECTION */
+/* ================================
+   MAIN CONTACT SECTION
+================================ */
 .contact-container {
   max-width: 1150px;
   margin: auto;
@@ -38,7 +42,8 @@
   display: flex;
   gap: 40px;
 
-  .contact-left, .contact-right {
+  .contact-left,
+  .contact-right {
     flex: 1;
   }
 
@@ -47,102 +52,120 @@
     font-weight: 600;
     color: #0b3a2a;
   }
+}
 
-  /* FORM STYLES */
-  .contact-form {
-    .row {
-      display: flex;
-      gap: 20px;
+/* ================================
+   FORM STYLES
+================================ */
+.contact-form {
 
-      .form-group {
-        flex: 1;
-      }
-    }
+  .row {
+    display: flex;
+    gap: 20px;
 
     .form-group {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 18px;
-
-      label {
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-
-      input, textarea {
-        padding: 12px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 15px;
-
-        &:focus {
-          border-color: #2FA15A;
-          outline: none;
-        }
-      }
-
-      .error {
-        color: #d9534f;
-        font-size: 13px;
-        margin-top: 4px;
-      }
-    }
-
-    .submit-btn {
-      background: #2FA15A;
-      color: white;
-      padding: 14px 26px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      margin-top: 10px;
-      font-size: 16px;
-      font-weight: 600;
-
-      &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-
-      &:hover:not(:disabled) {
-        background: #0b3a2a;
-      }
+      flex: 1;
     }
   }
 
-  /* CONTACT INFO */
-  .contact-right {
-    .info-box {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
 
-      i {
-        font-size: 22px;
-        color: #2FA15A;
-      }
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
 
-      p {
-        font-size: 16px;
-        color: #444;
+    input,
+    textarea {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        border-color: #2FA15A;
+        outline: none;
       }
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .error {
+      color: #d9534f;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+  }
+
+  .submit-btn {
+    background: #2FA15A;
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background: #0b3a2a;
     }
   }
 }
 
-/* MAP */
+/* ================================
+   CONTACT INFO
+================================ */
+.contact-right {
+  .info-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
 
+    i {
+      font-size: 22px;
+      color: #2FA15A;
+    }
+
+    p {
+      font-size: 16px;
+      color: #444;
+    }
+  }
+}
+
+/* ================================
+   MAP
+================================ */
 .map-section {
   margin-top: 40px;
 
   iframe {
+    width: 100%;
+    height: 380px;
     border-radius: 8px;
+    border: 0;
   }
 }
 
-/* CTA */
-
+/* ================================
+   CTA SECTION
+================================ */
 .cta-contact {
   text-align: center;
   padding: 50px 20px;
@@ -171,6 +194,93 @@
 
     &:hover {
       background: #219047;
+    }
+  }
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .contact-container {
+    gap: 30px;
+    padding: 50px 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-header {
+    height: 220px;
+
+    .content {
+      padding-top: 60px;
+
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 50px;
+    padding: 40px 16px;
+  }
+
+  .contact-form {
+    .row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .map-section iframe {
+    height: 300px;
+  }
+
+  .cta-contact {
+    padding: 40px 16px;
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .contact-header {
+    height: 200px;
+
+    .content h1 {
+      font-size: 26px;
+    }
+  }
+
+  .contact-form {
+    .submit-btn {
+      width: 100%;
+    }
+  }
+
+  .contact-right {
+    .info-box {
+      align-items: flex-start;
+
+      p {
+        font-size: 15px;
+      }
     }
   }
 }
