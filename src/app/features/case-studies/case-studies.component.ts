@@ -48,7 +48,7 @@ industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineeri
         'Real-time monitoring of spindle speed, yarn breakage alerts, and machine runtime data.',
       kpis: ['Breakdowns reduced 31%', 'Production output +18%', 'Quality defects -22%'],
       image: '/assets/case-studies/loom-monitoring.jpg',
-      link: 'mcf-predictive-maintenance',
+      link: '/case-studies/iot-based-loom-monitoring',
 
     },
     {
@@ -58,7 +58,7 @@ industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineeri
         'High-speed vision system for label verification, OCR, expiry validation, and defect detection.',
       kpis: ['99.6% detection accuracy', 'Production speed 300+ packs/min', 'False rejects -45%'],
       image: '/assets/case-studies/packaging.avif',
-      link: 'mcf-predictive-maintenance',
+      link: '/case-studies/machine-vision-packaging-pharma',
 
     }
   ];

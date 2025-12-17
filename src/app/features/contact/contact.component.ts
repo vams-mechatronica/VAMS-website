@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from '../../shared/services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,9 +9,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+  loading = false;
+  successMessage = '';
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService
+  ) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -21,11 +27,23 @@ export class ContactComponent {
     });
   }
 
+
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log("Form submitted:", this.contactForm.value);
-      alert("Thank you! We will contact you soon.");
-      this.contactForm.reset();
+      this.loading = true;
+      this.contactService.submitContactForm(this.contactForm.value)
+        .subscribe({
+          next: () => {
+            this.successMessage = 'Message sent successfully!';
+            this.contactForm.reset();
+            this.loading = false;
+          },
+          error: () => {
+            this.loading = false;
+          }
+        });
     }
+    this.contactForm.reset();
   }
 }
+
