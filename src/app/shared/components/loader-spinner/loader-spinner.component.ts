@@ -1,12 +1,11 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-loader-spinner',
-  imports: [CommonModule],
   templateUrl: './loader-spinner.component.html',
-  styleUrl: './loader-spinner.component.scss'
+  styleUrls: ['./loader-spinner.component.scss'],
+  standalone: false
 })
 export class LoaderSpinnerComponent {
-  visible: boolean = false;
+  visible = false;
 }

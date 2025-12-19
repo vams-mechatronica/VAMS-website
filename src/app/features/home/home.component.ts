@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -32,15 +33,18 @@ export class HomeComponent {
   ];
 
 
-  constructor() {}
+  constructor(private title: Title, private meta: Meta) { }
 
   ngOnInit() {
-    // this.vams.getAbout().subscribe(data => {
-    //   this.aboutData = data;
-    // });
+    this.title.setTitle(
+      'Industrial Automation & IIoT Solutions | VAMS Mechatronica'
+    );
 
-    // this.vams.getPromonitor().subscribe(pm => {
-    //   this.promonitor = pm;
-    // });
+    this.meta.addTags([
+      { name: 'description', content: 'Industry 4.0, Industrial IoT, predictive maintenance, robotics & real-time monitoring solutions.' },
+      { name: 'keywords', content: 'industrial automation, IIoT, predictive maintenance, CNC monitoring' },
+      { property: 'og:title', content: 'VAMS Mechatronica' },
+      { property: 'og:type', content: 'website' }
+    ]);
   }
 }

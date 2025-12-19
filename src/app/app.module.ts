@@ -26,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule, RouterOutlet, ReactiveFormsModule
+    SharedModule,
+    RouterOutlet,
+    ReactiveFormsModule
   ],
   providers: [
     provideHttpClient(withFetch()),
@@ -34,4 +36,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
