@@ -186,7 +186,7 @@
     }
 
     .cta {
-      background: #2FA15A;
+      background: var(--secondary--dark);
       padding: 10px 26px;
       font-size: 0.9rem;
       color: #ffffff;
@@ -345,7 +345,7 @@
   .cta {
     padding: 12px 30px;
     background: #fff;
-    color: #2FA15A;
+    color: var(--secondary--dark);
     border-radius: 6px;
     border: none;
     font-size: 16px;
