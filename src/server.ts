@@ -1,6 +1,8 @@
-import { AngularNodeAppEngine } from '@angular/ssr/node';
-import netlifyAngular from '@netlify/angular-runtime';
+import { CommonEngine } from '@angular/ssr/node';
+import { render } from '@netlify/angular-runtime/common-engine.mjs';
 
-const angularApp = new AngularNodeAppEngine();
+const commonEngine = new CommonEngine();
 
-export const handler = netlifyAngular(angularApp);
+export async function netlifyCommonEngineHandler(request: Request, context: any): Promise<Response> {
+  return await render(commonEngine);
+}
