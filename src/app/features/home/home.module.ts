@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { VamsAbout, VamsService } from '../../core/services/home.services';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -14,7 +15,7 @@ const routes: Routes = [
     HomeComponent
   ],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes), SharedModule
   ]
 })
 export class HomeModule {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { IndustriesRoutingModule } from './industries-routing.module';
 import { IndustriesComponent } from './industries.component';
@@ -11,6 +12,7 @@ import { IndustriesComponent } from './industries.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     IndustriesRoutingModule
   ]
 })

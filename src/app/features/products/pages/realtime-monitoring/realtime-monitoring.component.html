@@ -1,8 +1,12 @@
 
 <section class="hero">
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+  <div class="hero-scanline" aria-hidden="true"></div>
+
   <div class="hero-overlay">
     <div class="hero-left">
-      <h1>Real-Time Monitoring</h1>
+      <span class="hero-badge"><i class="fa-solid fa-chart-line"></i> Real-Time Monitoring</span>
+      <h1>Complete Visibility Into <span class="accent">Every Machine</span></h1>
       <p>
         Gain complete visibility across your machines, operations, and production
         workflows with live dashboards, alerts, and deep analytics powered by
@@ -10,20 +14,16 @@
       </p>
 
       <div class="hero-cta">
-        <button class="cta-btn">Get a Consultation</button>
-        <a class="ghost-btn" href="#contact">Download Brochure</a>
+        <a [routerLink]="['/contact']" class="cta-btn">Talk to an Engineer <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="ghost-btn" href="/assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf">
+          <i class="fa-solid fa-file-arrow-down"></i> Download Brochure
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="logo-strip">
-  <div class="slider">
-    <div class="slide-track">
-      <img *ngFor="let logo of loopLogos" [src]="logo" />
-    </div>
-  </div>
-</section>
+<app-logo-carousel></app-logo-carousel>
 
 <section class="rtm-stats container">
   <div class="stat-box">

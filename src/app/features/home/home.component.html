@@ -1,55 +1,75 @@
 <section class="hero">
-  <!-- <div class="container hero-content"> -->
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+  <div class="hero-scanline" aria-hidden="true"></div>
 
   <div class="hero-overlay">
     <div class="hero-left">
-      <h1>Transforming Industries with Intelligent Automation</h1>
+      <span class="hero-badge">
+        <i class="fa-solid fa-industry"></i> Industry 4.0 &amp; Industrial Automation
+      </span>
+
+      <h1>Transforming Industries with <span class="accent">Intelligent Automation</span></h1>
       <p>
         Industry 4.0 solutions, Industrial IoT, Robotics & Real-time Monitoring
         tailored for smart manufacturing and future-ready factories.
       </p>
 
       <div class="hero-cta">
-        <a [routerLink]="['/contact']" class="cta-btn">Get a Consultation</a>
-        <a class="ghost-btn" href="assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf">Download
-          Brochure</a>
+        <a [routerLink]="['/contact']" class="cta-btn">
+          Talk to an Engineer <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="ghost-btn" href="assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf">
+          <i class="fa-solid fa-file-arrow-down"></i> Download Brochure
+        </a>
       </div>
 
       <div class="trusted">
-        Trusted by: <span class="chips">Jaewoo Machines</span>
+        <span class="trusted-label">Trusted by</span>
+        <span class="chips">Jaewoo Machines</span>
         <span class="chips">MCF R</span>
       </div>
     </div>
+
     <div class="hero-right">
-      <!-- mock dashboard card -->
       <div class="mock-dashboard">
-        <h4>Factory Health</h4>
+        <div class="mock-dashboard-header">
+          <span class="live-dot" aria-hidden="true"></span>
+          <h4>ProMonitor · Live Factory Health</h4>
+        </div>
+
         <div class="stats">
-          <div>
+          <div class="stat">
+            <i class="fa-solid fa-gauge-high"></i>
             <div class="num">98%</div>
             <div class="label">Uptime</div>
           </div>
-          <div>
+          <div class="stat">
+            <i class="fa-solid fa-triangle-exclamation"></i>
             <div class="num">12</div>
             <div class="label">Alerts</div>
           </div>
-          <div>
+          <div class="stat">
+            <i class="fa-solid fa-power-off"></i>
             <div class="num">4</div>
             <div class="label">Machines Down</div>
           </div>
         </div>
+
+        <div class="mock-bars" aria-hidden="true">
+          <span style="--h: 55%"></span>
+          <span style="--h: 80%"></span>
+          <span style="--h: 40%"></span>
+          <span style="--h: 92%"></span>
+          <span style="--h: 65%"></span>
+          <span style="--h: 74%"></span>
+          <span style="--h: 88%"></span>
+          <span style="--h: 50%"></span>
+        </div>
       </div>
     </div>
   </div>
-  <!-- </div> -->
 </section>
-<section class="logo-strip">
-  <div class="slider">
-    <div class="slide-track">
-      <img *ngFor="let logo of loopLogos" [src]="logo" />
-    </div>
-  </div>
-</section>
+<app-logo-carousel></app-logo-carousel>
 <section class="intro-mission container">
 
   <!-- Introduction Section -->
@@ -167,7 +187,10 @@
 
 
 <section class="features container" id="services">
-  <h2 class="section-title">Our Capabilities</h2>
+  <h2 class="section-title">Our Solutions</h2>
+  <p class="section-subtitle">
+    Engineering capabilities organized around the problems manufacturers actually face on the shop floor.
+  </p>
 
   <div class="features-grid">
 
@@ -252,6 +275,42 @@
 
   </div>
 </section>
+
+<section class="architecture-section" id="technology">
+  <div class="container">
+    <div class="section-header">
+      <h2>The Connected Factory Stack</h2>
+      <p>
+        How VAMS Mechatronica links shop-floor equipment to business decisions — select a layer to see what it does.
+      </p>
+    </div>
+
+    <div class="architecture-layout">
+      <div class="layer-list">
+        <button
+          *ngFor="let layer of architectureLayers; let i = index"
+          class="layer-btn"
+          [class.active]="activeLayer === i"
+          (click)="activeLayer = i"
+          (mouseenter)="activeLayer = i"
+        >
+          <span class="layer-index">{{ i + 1 }}</span>
+          <span class="layer-name">{{ layer.name }}</span>
+        </button>
+      </div>
+
+      <div class="layer-detail" *ngIf="architectureLayers[activeLayer] as layer">
+        <h3>{{ layer.name }}</h3>
+        <p class="layer-what">{{ layer.what }}</p>
+        <div class="layer-benefit">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>{{ layer.benefit }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-banner">
   <div class="cta-content">
     <h2>Transform Your Factory With Real-Time Insights</h2>

@@ -1,0 +1,164 @@
+// Shared premium hero treatment for product/solution pages.
+// Each consuming component sets its own background-image via `.hero { background-image: ... }`
+// after `@use`, and its own `.hero-badge` copy in the template.
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #0A1F2B;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 20% 40%, #000 0%, transparent 75%);
+}
+
+.hero-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--highlight), transparent);
+  opacity: .55;
+  animation: heroScanline 6s linear infinite;
+}
+
+@keyframes heroScanline {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scanline { animation: none; display: none; }
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 7rem 6rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  color: white;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.06);
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: #cfe9d8;
+  margin-bottom: 20px;
+
+  i { color: var(--highlight); }
+}
+
+.hero-left {
+  flex: 1;
+
+  h1 {
+    font-family: Poppins, sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.18;
+    margin-bottom: 16px;
+    color: #fff;
+
+    .accent {
+      background: linear-gradient(90deg, var(--highlight), #7be3c0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    max-width: 640px;
+    margin-bottom: 26px;
+    color: #d6dee1;
+    line-height: 1.6;
+  }
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.9rem 1.8rem;
+  background: linear-gradient(90deg, #2FA15A, #1F7A3A);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .25s ease;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(31,122,58,.35);
+
+  &:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(31,122,58,.45); }
+}
+
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.9rem 1.8rem;
+  border: 1.5px solid rgba(255,255,255,.4);
+  color: #fff;
+  background: rgba(255,255,255,.04);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .25s ease;
+
+  &:hover { background: rgba(255,255,255,.14); border-color: #fff; }
+}
+
+@media (max-width: 900px) {
+  .hero-overlay {
+    flex-direction: column;
+    padding: 5.5rem 1.5rem 3rem;
+    text-align: center;
+  }
+
+  .hero-left h1 { font-size: 30px; }
+  .hero-left p { margin-left: auto; margin-right: auto; }
+  .hero-cta { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .hero { min-height: 420px; }
+  .hero-left h1 { font-size: 24px; }
+  .hero-badge { font-size: 12px; }
+}

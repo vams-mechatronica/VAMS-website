@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface CaseStudy {
   title: string;
@@ -16,10 +17,22 @@ interface CaseStudy {
   templateUrl: './case-studies.component.html',
   styleUrl: './case-studies.component.scss'
 })
-export class CaseStudiesComponent {
+export class CaseStudiesComponent implements OnInit {
 industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineering'];
 
   selectedIndustry = 'All';
+
+  constructor(private title: Title, private meta: Meta) {}
+
+  ngOnInit(): void {
+    this.title.setTitle('Case Studies | VAMS Mechatronica');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Real-world results from VAMS Mechatronica automation, IIoT and predictive maintenance projects across automotive, textile, FMCG and pharmaceutical industries.',
+    });
+    this.meta.updateTag({ property: 'og:title', content: 'Case Studies | VAMS Mechatronica' });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+  }
 
   caseStudies: CaseStudy[] = [
     {

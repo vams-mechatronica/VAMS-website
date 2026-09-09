@@ -11,7 +11,13 @@
           Delivering Industrial Automation, IIoT, Smart Manufacturing, and Real-Time Monitoring.
         </p>
         <p class="footer-contact">
-          <i class="bi bi-envelope-fill me-2"></i> support&#64;vamsmechatronica&#46;com
+          <i class="fa-solid fa-envelope me-2"></i> info&#64;vamsmechatronica&#46;in
+        </p>
+        <p class="footer-contact">
+          <i class="fa-solid fa-phone me-2"></i> +91 89483 13390
+        </p>
+        <p class="footer-contact">
+          <i class="fa-solid fa-location-dot me-2"></i> Noida, India
         </p>
       </div>
 
@@ -21,8 +27,9 @@
         <h5 class="footer-title">Quick Links</h5>
         <ul class="footer-links">
           <li><a routerLink="/">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#industries">Industries</a></li>
+          <li><a [routerLink]="['/']" fragment="services">Solutions</a></li>
+          <li><a routerLink="/industries">Industries</a></li>
+          <li><a routerLink="/case-studies">Case Studies</a></li>
           <li><a routerLink="/about">About Us</a></li>
           <li><a routerLink="/contact">Contact</a></li>
         </ul>

@@ -11,17 +11,6 @@ export class HomeComponent {
   // aboutData: VamsAbout | null = null;
   // promonitor: any;
 
-  logos: string[] = [
-    'assets/images/Havells_Logo.svg',
-    'assets/images/header_logo-1634104756307.webp',
-    'assets/images/hsl-log-new.png',
-    'assets/images/maruti-logo.webp',
-    'assets/images/sterison_logo.png'
-  ];
-
-  // Duplicate logos to make infinite loop seamless
-  loopLogos = [...this.logos, ...this.logos];
-
   introImage: string = 'assets/images/digital_factory.jpg';
   missionImage: string = 'assets/images/mission_vams.jpeg';
 
@@ -30,6 +19,41 @@ export class HomeComponent {
     { icon: 'fa-industry', label: 'Digital Factory Enablement' },
     { icon: 'fa-chart-line', label: 'Operational Excellence' },
     { icon: 'fa-shield-halved', label: 'Reliable & Secure Systems' },
+  ];
+
+  activeLayer = 0;
+
+  architectureLayers = [
+    {
+      name: 'Machines & Sensors',
+      what: 'CNC machines, PLCs, robots and sensors on the shop floor generate the raw signals — speed, temperature, vibration, energy, status.',
+      benefit: 'The source of truth for everything happening on the floor, in real time.',
+    },
+    {
+      name: 'Industrial Network',
+      what: 'Machine data is carried over the plant network to a central point, connecting equipment that was previously isolated.',
+      benefit: 'Removes manual data collection and paper logs.',
+    },
+    {
+      name: 'Edge / Gateway',
+      what: 'Gateways aggregate and normalize signals from mixed machine brands and protocols before they leave the shop floor.',
+      benefit: 'One consistent data format regardless of machine age or vendor.',
+    },
+    {
+      name: 'ProMonitor Platform',
+      what: 'Our IIoT platform ingests the normalized data and turns it into machine health, OEE, and production metrics.',
+      benefit: 'A single dashboard instead of scattered spreadsheets and shift logs.',
+    },
+    {
+      name: 'Analytics & Alerts',
+      what: 'Historical and live data is analyzed for anomalies, downtime patterns, and maintenance signals.',
+      benefit: 'Problems are surfaced before they become breakdowns.',
+    },
+    {
+      name: 'Business Decisions',
+      what: 'Production, maintenance and management teams act on the same real-time picture of the factory.',
+      benefit: 'Faster, data-backed decisions instead of end-of-shift guesswork.',
+    },
   ];
 
 

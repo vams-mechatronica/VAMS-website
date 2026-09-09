@@ -1,0 +1,11 @@
+<section class="logo-carousel">
+  <p class="logo-carousel-label">Trusted by teams at</p>
+
+  <div class="logo-track-wrap">
+    <div class="logo-track">
+      <div class="logo-item" *ngFor="let client of loopClients">
+        <img [src]="client.src" [alt]="client.alt" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
