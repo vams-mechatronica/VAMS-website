@@ -70,11 +70,16 @@
   </div>
 </section>
 <app-logo-carousel></app-logo-carousel>
-<section class="intro-mission container">
+<section class="about-section">
+  <div class="container about-layout">
 
-  <!-- Introduction Section -->
-  <div class="intro-section">
-    <div class="intro-text">
+    <div class="about-media">
+      <img class="about-img-main" [src]="introImage" loading="lazy" alt="VAMS Mechatronica digital factory platform" />
+      <img class="about-img-badge" [src]="missionImage" loading="lazy" alt="Engineer monitoring VAMS Mechatronica dashboards" />
+    </div>
+
+    <div class="about-copy">
+      <span class="eyebrow">Who We Are</span>
       <h2>About VAMS Mechatronica</h2>
       <p>
         We empower industries with next-generation automation, Industry 4.0 solutions, and intelligent
@@ -83,27 +88,9 @@
       </p>
       <p>
         From machine connectivity to smart analytics, we deliver scalable, high-performance solutions tailored
-        for future-ready factories.
-      </p>
-    </div>
-
-    <div class="intro-image">
-      <img [src]="introImage" loading="lazy" alt="Industry Introduction Image" />
-    </div>
-  </div>
-
-  <!-- Mission Section -->
-  <div class="mission-section">
-    <div class="mission-image">
-      <img [src]="missionImage" loading="lazy" alt="Mission Image" />
-    </div>
-
-    <div class="mission-text">
-      <h2>Our Mission</h2>
-      <p>
-        To accelerate the digital transformation of manufacturing by integrating automation, robotics, IoT,
-        and AI-driven insights—empowering organizations to achieve greater efficiency, reliability, and
-        operational excellence.
+        for future-ready factories. To accelerate that shift, we integrate automation, robotics, IoT and
+        AI-driven insights&mdash;helping organizations achieve greater efficiency, reliability and operational
+        excellence.
       </p>
 
       <div class="mission-highlights">
@@ -113,8 +100,8 @@
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </section>
 <section class="industries-section" id="industries">
   <div class="container">
@@ -186,7 +173,8 @@
 
 
 
-<section class="features container" id="services">
+<section class="features" id="services">
+  <div class="container">
   <h2 class="section-title">Our Solutions</h2>
   <p class="section-subtitle">
     Engineering capabilities organized around the problems manufacturers actually face on the shop floor.
@@ -274,6 +262,7 @@
     </div>
 
   </div>
+  </div>
 </section>
 
 <section class="architecture-section" id="technology">
@@ -312,9 +301,12 @@
 </section>
 
 <section class="cta-banner">
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
   <div class="cta-content">
     <h2>Transform Your Factory With Real-Time Insights</h2>
     <p>Enable smart decision-making at every level of your manufacturing operations.</p>
-    <a [routerLink]="['/contact']" class="cta">Schedule a Free Consultation</a>
+    <a [routerLink]="['/contact']" class="cta">
+      Schedule a Free Consultation <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
 </section>
