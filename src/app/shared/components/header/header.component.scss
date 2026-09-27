@@ -7,8 +7,6 @@
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: saturate(160%) blur(10px);
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e3e9ef;
@@ -16,6 +14,17 @@
   z-index: 1000;
 
   &.scrolled { box-shadow: 0 4px 18px rgba(10, 61, 98, 0.10); }
+
+  /* The blur lives on a pseudo-element: backdrop-filter on the header itself would
+     make it the containing block for the fixed mobile menu and shrink it to header height. */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: saturate(160%) blur(10px);
+    z-index: -1;
+  }
 }
 
 .header-content {
@@ -27,6 +36,8 @@
   width: 100%;
   gap: 24px;
   height: 100%;
+  box-sizing: border-box;
+  max-width: 1200px;
 }
 
 /* ================================
@@ -147,8 +158,10 @@
   position: fixed;
   top: 0;
   right: 0;
+  box-sizing: border-box;
   height: 100%;
   width: min(78vw, 320px);
+  overflow-y: auto;
   background: #fff;
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -190,6 +203,11 @@
 /* ================================
    RESPONSIVE BREAKPOINTS
 ================================ */
+/* Below the container's max width, keep breathing room at the screen edges */
+@media (max-width: 1240px) {
+  .header-content { width: 92%; }
+}
+
 @media (max-width: 1024px) {
   .logo-box img { height: 44px; }
   .nav { gap: 18px; a { font-size: 14px; } }
