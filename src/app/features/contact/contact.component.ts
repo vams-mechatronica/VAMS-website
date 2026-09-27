@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { SeoService } from '../../core/services/seo.service';
 import { ContactService } from '../../core/services/contact.service';
 
 @Component({
@@ -12,13 +13,14 @@ import { ContactService } from '../../core/services/contact.service';
 export class ContactComponent implements OnInit {
   loading = false;
   successMessage = '';
+  errorMessage = '';
   contactForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
-    private title: Title,
-    private meta: Meta
+    private route: ActivatedRoute,
+    private seo: SeoService
   ) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
@@ -26,37 +28,44 @@ export class ContactComponent implements OnInit {
       phone: [''],
       company: [''],
       subject: [''],
+      industry: [''],
+      machines: [''],
       message: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    this.title.setTitle('Contact Us | VAMS Mechatronica');
-    this.meta.updateTag({
-      name: 'description',
-      content: 'Get in touch with VAMS Mechatronica for industrial automation, IIoT and Industry 4.0 consultations.',
+    this.seo.set({
+      title: 'Contact Us | VAMS Mechatronica',
+      description: 'Talk to VAMS Mechatronica about ProMonitor, machine connectivity, industrial automation and Industry 4.0.',
+      path: '/contact',
     });
-    this.meta.updateTag({ property: 'og:title', content: 'Contact Us | VAMS Mechatronica' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    const subjects: Record<string, string> = {
+      demo: 'ProMonitor demo request',
+      scheduling: 'Job shop scheduling pilot',
+    };
+    const subject = subjects[this.route.snapshot.queryParamMap.get('topic') ?? ''];
+    if (subject) this.contactForm.patchValue({ subject });
   }
-
 
   onSubmit() {
-    if (this.contactForm.valid) {
-      this.loading = true;
-      this.contactService.submitContactForm(this.contactForm.value)
-        .subscribe({
-          next: () => {
-            this.successMessage = 'Message sent successfully!';
-            this.contactForm.reset();
-            this.loading = false;
-          },
-          error: () => {
-            this.loading = false;
-          }
-        });
-    }
-    this.contactForm.reset();
+    if (this.contactForm.invalid || this.loading) return;
+    this.loading = true;
+    this.successMessage = '';
+    this.errorMessage = '';
+    const { industry, machines, ...payload } = this.contactForm.value;
+    const details = [industry && `Industry: ${industry}`, machines && `Number of machines: ${machines}`].filter(Boolean);
+    if (details.length) payload.message = `${payload.message}\n\n${details.join('\n')}`;
+    this.contactService.submitContactForm(payload).subscribe({
+      next: () => {
+        this.successMessage = 'Message sent successfully. We will get back to you soon.';
+        this.contactForm.reset();
+        this.loading = false;
+      },
+      error: () => {
+        this.errorMessage = 'Could not send your message. Please try again or email info@vamsmechatronica.in.';
+        this.loading = false;
+      },
+    });
   }
 }
-

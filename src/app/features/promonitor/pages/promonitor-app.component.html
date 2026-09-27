@@ -1,0 +1,85 @@
+<section class="hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a [routerLink]="['/promonitor']">ProMonitor</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span aria-current="page">{{ page.name }}</span>
+    </nav>
+    <span class="eyebrow"><i class="fa-solid" [ngClass]="page.icon" aria-hidden="true"></i> {{ page.name }}</span>
+    <h1>{{ page.headline }}</h1>
+    <p class="lead">{{ page.lead }}</p>
+    <p class="question"><strong>The question it answers:</strong> {{ page.question }}</p>
+    <div class="cta-row">
+      <a class="btn primary" [routerLink]="['/contact']">Talk to Our Experts <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn ghost" href="#screens">See the screens</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>{{ page.capabilitiesTitle }}</h2>
+    <div class="grid">
+      <article class="card" *ngFor="let c of page.capabilities">
+        <i class="fa-solid" [ngClass]="c.icon" aria-hidden="true"></i>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="screens">
+  <div class="container">
+    <h2>{{ page.name }} in ProMonitor</h2>
+    <p class="sub">Screens from a ProMonitor demonstration environment that uses simulated machine data. Select a screen to enlarge it.</p>
+    <div class="shots">
+      <figure class="shot" *ngFor="let s of page.shots">
+        <app-screenshot-frame [file]="s.file" [label]="s.title" [alt]="s.alt"></app-screenshot-frame>
+        <figcaption><strong>{{ s.title }}</strong> {{ s.caption }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What you get</h2>
+    <div class="grid three">
+      <article class="card slim" *ngFor="let o of page.outcomes">
+        <i class="fa-solid" [ngClass]="o.icon" aria-hidden="true"></i>
+        <h3>{{ o.title }}</h3>
+        <p>{{ o.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2>More in ProMonitor</h2>
+    <div class="grid three">
+      <a class="card link" *ngFor="let a of others" [routerLink]="['/promonitor', a.slug]">
+        <i class="fa-solid" [ngClass]="a.icon" aria-hidden="true"></i>
+        <h3>{{ a.name }}</h3>
+        <p>{{ a.question }}</p>
+      </a>
+      <a class="card link" [routerLink]="['/promonitor']">
+        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+        <h3>ProMonitor platform</h3>
+        <p>How the core platform and its applications fit together.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to Connect Your Factory?</h2>
+    <p>Talk to our team about machine connectivity, Industry 4.0 implementation and ProMonitor.</p>
+    <div class="cta-row center">
+      <a class="btn primary" [routerLink]="['/contact']">Talk to Our Experts</a>
+      <a class="btn ghost light" [routerLink]="['/contact']" [queryParams]="{ topic: 'demo' }">Request a Demo</a>
+    </div>
+  </div>
+</section>

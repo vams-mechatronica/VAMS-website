@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -7,6 +7,20 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/home/home.module').then(
         (m) => m.HomeModule,
+      ),
+  },
+  {
+    path: 'promonitor',
+    loadChildren: () =>
+      import('./features/promonitor/promonitor.module').then(
+        (m) => m.PromonitorModule,
+      ),
+  },
+  {
+    path: 'job-shop-scheduling',
+    loadChildren: () =>
+      import('./features/scheduling/scheduling.module').then(
+        (m) => m.SchedulingModule,
       ),
   },
   {
@@ -49,6 +63,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
+    // Fetch the other lazy modules in the background once the first page is idle.
+    preloadingStrategy: PreloadAllModules,
     scrollPositionRestoration: 'top',
     anchorScrolling: 'enabled',
     scrollOffset: [0, 96]

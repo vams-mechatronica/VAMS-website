@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { SeoService } from '../../core/services/seo.service';
 
 interface Industry {
   icon: string;
@@ -17,6 +17,18 @@ interface Industry {
 export class IndustriesComponent implements OnInit {
 
   industries: Industry[] = [
+    {
+      icon: 'fa-train',
+      name: 'Railways',
+      description: 'VAMS Mechatronica has delivered implementations in the railway sector.',
+      applications: [],
+    },
+    {
+      icon: 'fa-shield-halved',
+      name: 'Defence',
+      description: 'VAMS Mechatronica has delivered implementations in the defence sector.',
+      applications: [],
+    },
     {
       icon: '/assets/icons/car-solid-full.svg',
       name: 'Automotive',
@@ -55,15 +67,18 @@ export class IndustriesComponent implements OnInit {
     },
   ];
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(private seo: SeoService) {}
+
+  /** Font Awesome icon names have no path; the rest are image files. */
+  isFaIcon(icon: string): boolean {
+    return icon.startsWith('fa-');
+  }
 
   ngOnInit(): void {
-    this.title.setTitle('Industries We Serve | VAMS Mechatronica');
-    this.meta.updateTag({
-      name: 'description',
-      content: 'VAMS Mechatronica delivers Industry 4.0 and industrial automation solutions across automotive, FMCG, textile, pharmaceuticals, process & chemical, and manufacturing sectors.',
+    this.seo.set({
+      title: 'Industries We Serve | VAMS Mechatronica',
+      description: 'VAMS Mechatronica delivers Industry 4.0 and industrial automation solutions for railways, defence, automotive, FMCG, textile, pharmaceuticals, process & chemical, and manufacturing.',
+      path: '/industries',
     });
-    this.meta.updateTag({ property: 'og:title', content: 'Industries We Serve | VAMS Mechatronica' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
   }
 }

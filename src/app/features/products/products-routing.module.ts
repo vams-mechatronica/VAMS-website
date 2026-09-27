@@ -11,15 +11,15 @@ import { RealTimeMonitoringDetailsComponent } from './pages/realtime-monitoring/
 import { PredictiveMaintenanceDetailsComponent } from './pages/predictive-maintenance/predictive-maintenance-details/predictive-maintenance-details.component';
 
 const routes: Routes = [
-  { path: '', component: ProductsComponent },
-  { path: 'realtime-monitoring', component: RealtimeMonitoringComponent },
-  { path: 'realtime-monitoring/details', component: RealTimeMonitoringDetailsComponent },
-  { path: 'energy-monitoring', component: EnergyMonitoringComponent },
-  { path: 'robotics-integration', component: RoboticsIntegrationComponent },
-  { path: 'production-scheduling', component: ProductionSchedulingComponent },
-  { path: 'predictive-maintenance', component: PredictiveMaintenanceComponent },
-  { path: 'predictive-maintenance/details', component: PredictiveMaintenanceDetailsComponent },
-  { path: 'material-rfid-tracking', component: MaterialRfidTrackingComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/promonitor' },
+  { path: 'realtime-monitoring', redirectTo: '/promonitor/real-time-monitoring' },
+  { path: 'realtime-monitoring/details', redirectTo: '/promonitor/real-time-monitoring' },
+  { path: 'predictive-maintenance', redirectTo: '/promonitor/predictive-maintenance' },
+  { path: 'predictive-maintenance/details', redirectTo: '/promonitor/predictive-maintenance' },
+  { path: 'production-scheduling', redirectTo: '/promonitor/production-monitoring' },
+  { path: 'robotics-integration', redirectTo: '/promonitor' },
+  { path: 'energy-monitoring', redirectTo: '/promonitor' },
+  { path: 'material-rfid-tracking', redirectTo: '/promonitor' },
 ];
 
 @NgModule({

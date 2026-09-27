@@ -1,0 +1,41 @@
+<div class="frame">
+  <div class="bar" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <em>{{ brand }}</em>
+  </div>
+
+  <div
+    class="body"
+    [class.zoomable]="ready"
+    [attr.role]="ready ? 'button' : null"
+    [attr.tabindex]="ready ? 0 : null"
+    [attr.aria-label]="ready ? 'Enlarge screenshot: ' + alt : null"
+    (click)="open()"
+    (keydown.enter)="open()"
+  >
+    <div class="placeholder" *ngIf="!ready">
+      <i class="fa-solid fa-display" aria-hidden="true"></i>
+      <strong>{{ label }}</strong>
+      <span>Screenshot coming soon</span>
+      <code>assets/promonitor/{{ file }}</code>
+    </div>
+
+    <img
+      #img
+      *ngIf="!failed"
+      [src]="src"
+      [alt]="alt"
+      [class.ready]="ready"
+      loading="lazy"
+      (load)="ready = true"
+      (error)="failed = true"
+    />
+  </div>
+</div>
+
+<div class="lightbox" *ngIf="expanded" (click)="close()" (keydown.escape)="close()" tabindex="-1" role="dialog" aria-modal="true" [attr.aria-label]="alt">
+  <button type="button" class="lightbox-close" aria-label="Close" (click)="close()">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <img [src]="src" [alt]="alt" />
+</div>

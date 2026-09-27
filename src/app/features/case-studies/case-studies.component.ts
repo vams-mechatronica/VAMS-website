@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { SeoService } from '../../core/services/seo.service';
 
 interface CaseStudy {
   title: string;
@@ -18,28 +18,26 @@ interface CaseStudy {
   styleUrl: './case-studies.component.scss'
 })
 export class CaseStudiesComponent implements OnInit {
-industries = ['All', 'Automotive', 'Textile', 'FMCG', 'Pharma', 'Heavy Engineering'];
+industries = ['All', 'Railways', 'FMCG', 'Textile', 'Pharma'];
 
   selectedIndustry = 'All';
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(private seo: SeoService) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Case Studies | VAMS Mechatronica');
-    this.meta.updateTag({
-      name: 'description',
-      content: 'Real-world results from VAMS Mechatronica automation, IIoT and predictive maintenance projects across automotive, textile, FMCG and pharmaceutical industries.',
+    this.seo.set({
+      title: 'Case Studies | VAMS Mechatronica',
+      description: 'Case studies from VAMS Mechatronica automation, IIoT and predictive maintenance projects across railways, FMCG, textile and pharmaceutical industries.',
+      path: '/case-studies',
     });
-    this.meta.updateTag({ property: 'og:title', content: 'Case Studies | VAMS Mechatronica' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
   }
 
   caseStudies: CaseStudy[] = [
     {
       title: 'Predictive Maintenance for CNC Machines',
-      industry: 'Automotive',
+      industry: 'Railways',
       description:
-        'Implemented vibration & energy monitoring on CNC turning centers, reducing machine downtime by 38% and improving OEE by 22%.',
+        'Implemented at Modern Coach Factory (MCF), Raebareli: real-time monitoring and predictive maintenance on CNC machining centers, moving maintenance from reactive to data-driven.',
       kpis: ['Downtime reduced 38%', 'OEE improved 22%', 'ROI in 5.5 months'],
       image: '/assets/case-studies/cnc-monitoring.jpg',
       link: '/case-studies/mcf-predictive-maintenance',

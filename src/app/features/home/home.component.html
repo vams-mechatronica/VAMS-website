@@ -1,312 +1,176 @@
+<!-- Hero -->
 <section class="hero">
-  <div class="hero-grid-overlay" aria-hidden="true"></div>
-  <div class="hero-scanline" aria-hidden="true"></div>
-
-  <div class="hero-overlay">
-    <div class="hero-left">
-      <span class="hero-badge">
-        <i class="fa-solid fa-industry"></i> Industry 4.0 &amp; Industrial Automation
-      </span>
-
-      <h1>Transforming Industries with <span class="accent">Intelligent Automation</span></h1>
-      <p>
-        Industry 4.0 solutions, Industrial IoT, Robotics & Real-time Monitoring
-        tailored for smart manufacturing and future-ready factories.
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Industrial Automation &amp; Industry 4.0</span>
+      <h1>Connecting Machines. <span class="accent">Turning Industrial Data into Intelligence.</span></h1>
+      <p class="lead">
+        <strong>ProMonitor</strong> connects CNCs, PLCs, robots and industrial systems to give manufacturers
+        real-time visibility, production intelligence and predictive insight.
       </p>
-
-      <div class="hero-cta">
-        <a [routerLink]="['/contact']" class="cta-btn">
-          Talk to an Engineer <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a class="ghost-btn" href="assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf">
-          <i class="fa-solid fa-file-arrow-down"></i> Download Brochure
-        </a>
+      <div class="cta-row">
+        <a class="btn primary" routerLink="/promonitor">Explore ProMonitor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn ghost" routerLink="/contact">Talk to Our Experts</a>
       </div>
-
-      <div class="trusted">
-        <span class="trusted-label">Trusted by</span>
-        <span class="chips">Jaewoo Machines</span>
-        <span class="chips">MCF R</span>
-      </div>
+      <ul class="proto-chips" aria-label="Supported protocols">
+        <li *ngFor="let p of protocols">{{ p }}</li>
+      </ul>
     </div>
-
-    <div class="hero-right">
-      <div class="mock-dashboard">
-        <div class="mock-dashboard-header">
-          <span class="live-dot" aria-hidden="true"></span>
-          <h4>ProMonitor · Live Factory Health</h4>
-        </div>
-
-        <div class="stats">
-          <div class="stat">
-            <i class="fa-solid fa-gauge-high"></i>
-            <div class="num">98%</div>
-            <div class="label">Uptime</div>
-          </div>
-          <div class="stat">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <div class="num">12</div>
-            <div class="label">Alerts</div>
-          </div>
-          <div class="stat">
-            <i class="fa-solid fa-power-off"></i>
-            <div class="num">4</div>
-            <div class="label">Machines Down</div>
-          </div>
-        </div>
-
-        <div class="mock-bars" aria-hidden="true">
-          <span style="--h: 55%"></span>
-          <span style="--h: 80%"></span>
-          <span style="--h: 40%"></span>
-          <span style="--h: 92%"></span>
-          <span style="--h: 65%"></span>
-          <span style="--h: 74%"></span>
-          <span style="--h: 88%"></span>
-          <span style="--h: 50%"></span>
-        </div>
-      </div>
+    <div class="hero-visual">
+      <app-screenshot-frame
+        file="dashboard-overview.webp"
+        label="ProMonitor platform dashboard"
+        alt="ProMonitor platform dashboard"
+      ></app-screenshot-frame>
     </div>
   </div>
 </section>
-<app-logo-carousel></app-logo-carousel>
-<section class="about-section">
-  <div class="container about-layout">
 
-    <div class="about-media">
-      <img class="about-img-main" [src]="introImage" loading="lazy" alt="VAMS Mechatronica digital factory platform" />
-      <img class="about-img-badge" [src]="missionImage" loading="lazy" alt="Engineer monitoring VAMS Mechatronica dashboards" />
-    </div>
-
-    <div class="about-copy">
-      <span class="eyebrow">Who We Are</span>
-      <h2>About VAMS Mechatronica</h2>
-      <p>
-        We empower industries with next-generation automation, Industry 4.0 solutions, and intelligent
-        factory platforms. Our mission is to transform manufacturing ecosystems with real-time visibility,
-        predictive intelligence, and seamless digital integration.
-      </p>
-      <p>
-        From machine connectivity to smart analytics, we deliver scalable, high-performance solutions tailored
-        for future-ready factories. To accelerate that shift, we integrate automation, robotics, IoT and
-        AI-driven insights&mdash;helping organizations achieve greater efficiency, reliability and operational
-        excellence.
-      </p>
-
-      <div class="mission-highlights">
-        <div class="highlight" *ngFor="let item of missionHighlights">
-          <i class="fa-solid" [ngClass]="item.icon"></i>
-          <span>{{ item.label }}</span>
-        </div>
-      </div>
-    </div>
-
+<!-- Deployment / trust strip -->
+<section class="strip" aria-label="Highlights">
+  <div class="container strip-grid">
+    <div><i class="fa-solid fa-cloud" aria-hidden="true"></i><span>SaaS (cloud) or on-premise</span></div>
+    <div><i class="fa-solid fa-plug" aria-hidden="true"></i><span>Six industrial protocols</span></div>
+    <div><i class="fa-solid fa-network-wired" aria-hidden="true"></i><span>Open REST API and live data stream</span></div>
+    <div><i class="fa-solid fa-train" aria-hidden="true"></i><span>Delivered in railways and defence</span></div>
   </div>
 </section>
-<section class="industries-section" id="industries">
+
+<!-- Capabilities -->
+<section class="section" id="services">
   <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">What we do</span>
+      <h2>Engineering the Connected Factory</h2>
+      <p>From the machine to the decision, and where ProMonitor fits.</p>
+    </div>
+    <div class="grid three">
+      <article class="card" *ngFor="let c of capabilities">
+        <i class="fa-solid" [ngClass]="c.icon" aria-hidden="true"></i>
+        <h3>{{ c.title }}</h3>
+        <ul>
+          <li *ngFor="let p of c.points">{{ p }}</li>
+        </ul>
+        <a *ngIf="c.link" class="text-link" [routerLink]="c.link.url">{{ c.link.label }} <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <div class="section-header">
+<!-- Product showcase -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">The platform</span>
+      <h2>One platform, three ways to act on machine data</h2>
+    </div>
+
+    <div class="feature">
+      <div class="feature-copy">
+        <h3>Real-Time Monitoring</h3>
+        <p>Live machine states, telemetry and alarms across plants, lines and machines, so operators and management see the same picture as it changes.</p>
+        <a class="text-link" routerLink="/promonitor/real-time-monitoring">Real-Time Monitoring <span aria-hidden="true">→</span></a>
+      </div>
+      <app-screenshot-frame file="monitoring-machine.webp" label="Machine live telemetry" alt="ProMonitor live machine telemetry"></app-screenshot-frame>
+    </div>
+
+    <div class="feature reverse">
+      <div class="feature-copy">
+        <h3>Predictive Maintenance</h3>
+        <p>Health scores, failure probability and remaining useful life for every asset, with a risk matrix that shows which machines need attention first.</p>
+        <a class="text-link" routerLink="/promonitor/predictive-maintenance">Predictive Maintenance <span aria-hidden="true">→</span></a>
+      </div>
+      <app-screenshot-frame file="pdm-overview.webp" label="Predictive maintenance overview" alt="ProMonitor predictive maintenance overview"></app-screenshot-frame>
+    </div>
+
+    <div class="feature">
+      <div class="feature-copy">
+        <h3>Adaptive Job Shop Scheduling</h3>
+        <p>A scheduler that re-plans when a machine breaks down or an order changes, and lets a planner approve the recommended schedule. Currently a proof of concept.</p>
+        <a class="text-link" routerLink="/job-shop-scheduling">Job Shop Scheduling <span aria-hidden="true">→</span></a>
+      </div>
+      <app-screenshot-frame file="scheduler-board.webp" brand="Adaptive Scheduler" label="Scheduling board" alt="Adaptive scheduler Gantt board"></app-screenshot-frame>
+    </div>
+
+    <p class="also"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> ProMonitor also includes
+      <a routerLink="/promonitor/production-monitoring">Production Monitoring</a> for plan versus actual output.</p>
+  </div>
+</section>
+
+<!-- Industries -->
+<section class="section" id="industries">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Industries</span>
       <h2>Industries We Serve</h2>
-      <p>
-        Delivering Industry 4.0 solutions across diverse manufacturing
-        and process-driven sectors.
-      </p>
+      <p>Industry 4.0 solutions across manufacturing and process-driven sectors.</p>
     </div>
-
-    <div class="industries-grid">
-
-      <div class="industry-card">
-        <div class="icon">
-          <img src="/assets/icons/car-solid-full.svg" loading="lazy" alt="Automotive">
-        </div>
-        <h3>Automotive</h3>
-        <p>Predictive maintenance, CNC monitoring, robotics & assembly automation.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon">
-          <img src="/assets/icons/cart-arrow-down-solid-full.svg" loading="lazy" alt="FMCG">
-        </div>
-        <h3>FMCG</h3>
-        <p>Energy monitoring, process optimization, packaging line analytics.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon">
-          <img src="/assets/icons/rug-solid-full.svg" loading="lazy" alt="Textile">
-        </div>
-        <h3>Textile</h3>
-        <p>IoT-based loom monitoring, spindle analytics, quality improvement.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon">
-          <img src="/assets/icons/prescription-bottle-solid-full.svg" loading="lazy" alt="Pharmaceuticals">
-        </div>
-        <h3>Pharmaceuticals</h3>
-        <p>Machine vision inspection, OCR, compliance and traceability.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon">
-          <img src="/assets/icons/chart-diagram-solid-full.svg" loading="lazy" alt="Process Industry">
-        </div>
-        <h3>Process & Chemical</h3>
-        <p>Continuous process monitoring, asset reliability and safety.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon">
-          <img src="/assets/icons/industry-solid-full.svg" loading="lazy" alt="Manufacturing">
-        </div>
-        <h3>Manufacturing</h3>
-        <p>Real-time dashboards, OEE improvement, smart factory solutions.</p>
-      </div>
-
+    <div class="grid four">
+      <article class="industry" *ngFor="let i of industries" [class.delivered]="i.delivered">
+        <span class="ind-icon"><i class="fa-solid" [ngClass]="i.icon" aria-hidden="true"></i></span>
+        <h3>{{ i.title }}</h3>
+        <p>{{ i.text }}</p>
+      </article>
     </div>
-
+    <p class="more"><a class="text-link" routerLink="/industries">All industries <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
-
-
-
-
-<section class="features" id="services">
+<!-- Stack -->
+<section class="section alt" id="technology">
   <div class="container">
-  <h2 class="section-title">Our Solutions</h2>
-  <p class="section-subtitle">
-    Engineering capabilities organized around the problems manufacturers actually face on the shop floor.
-  </p>
-
-  <div class="features-grid">
-
-    <div class="feature">
-      <div class="icon-box">
-        <i class="fa-solid fa-chart-line"></i>
-      </div>
-      <h3>Real-time Monitoring</h3>
-      <ul>
-        <li>Live dashboards with actionable KPIs</li>
-        <li>Machine health & OEE analytics</li>
-        <li>Instant alerts for anomalies</li>
-      </ul>
-      <a [routerLink]="['/products/realtime-monitoring']" class="learn-more">Learn More →</a>
-    </div>
-
-    <div class="feature">
-      <div class="icon-box">
-        <i class="fa-solid fa-robot"></i>
-      </div>
-      <h3>MES Integration</h3>
-      <ul>
-        <li>Sync live production data to the Industry 4.0 dashboard</li>
-        <li>Monitor machine performance, OEE, and process flow in real time</li>
-        <li>Automate shop-floor events with configurable MES workflows</li>
-      </ul>
-
-      <a [routerLink]="['/products/robotics-integration']" class="learn-more">Learn More →</a>
-    </div>
-
-    <div class="feature">
-      <div class="icon-box">
-        <i class="fa-solid fa-microchip"></i>
-      </div>
-      <h3>Predictive Maintenance</h3>
-      <ul>
-        <li>AI-driven anomaly detection</li>
-        <li>Failure prediction timelines</li>
-        <li>Maintenance auto-scheduling</li>
-      </ul>
-      <a [routerLink]="['/products/predictive-maintenance']" class="learn-more">Learn More →</a>
-    </div>
-
-    <div class="feature">
-      <div class="icon-box">
-        <i class="fa-solid fa-calendar-check"></i>
-      </div>
-      <h3>Production Scheduling</h3>
-      <ul>
-        <li>Load balanced shift planning</li>
-        <li>Automated schedule optimization</li>
-        <li>Real-time ERP sync</li>
-      </ul>
-      <a [routerLink]="['/products/production-scheduling']" class="learn-more">Learn More →</a>
-    </div>
-
-    <div class="feature">
-      <div class="icon-box">
-        <i class="fa-solid fa-boxes-stacked"></i>
-      </div>
-      <h3>Material & RFID Tracking</h3>
-      <ul>
-        <li>Material movement traceability</li>
-        <li>RFID scan-to-ERP tracking</li>
-        <li>Shortage prediction alerts</li>
-      </ul>
-      <a [routerLink]="['/products/material-rfid-tracking']" class="learn-more">Learn More →</a>
-    </div>
-
-    <div class="feature">
-      <div class="icon-box">
-        <i class="fa-solid fa-bolt"></i>
-      </div>
-      <h3>Energy Monitoring</h3>
-      <ul>
-        <li>Live energy usage per machine</li>
-        <li>Peak load forecasting</li>
-        <li>Cost optimization insights</li>
-      </ul>
-      <a [routerLink]="['/products/energy-monitoring']" class="learn-more">Learn More →</a>
-    </div>
-
-  </div>
-  </div>
-</section>
-
-<section class="architecture-section" id="technology">
-  <div class="container">
-    <div class="section-header">
+    <div class="section-head">
+      <span class="eyebrow dark">Architecture</span>
       <h2>The Connected Factory Stack</h2>
-      <p>
-        How VAMS Mechatronica links shop-floor equipment to business decisions — select a layer to see what it does.
-      </p>
+      <p>How shop-floor equipment links to business decisions. Select a layer to see what it does.</p>
     </div>
-
-    <div class="architecture-layout">
-      <div class="layer-list">
+    <div class="stack">
+      <div class="layer-list" role="tablist" aria-label="Stack layers">
         <button
           *ngFor="let layer of architectureLayers; let i = index"
+          type="button"
+          role="tab"
           class="layer-btn"
           [class.active]="activeLayer === i"
+          [attr.aria-selected]="activeLayer === i"
           (click)="activeLayer = i"
           (mouseenter)="activeLayer = i"
+          (focus)="activeLayer = i"
         >
           <span class="layer-index">{{ i + 1 }}</span>
-          <span class="layer-name">{{ layer.name }}</span>
+          <span>{{ layer.name }}</span>
         </button>
       </div>
-
-      <div class="layer-detail" *ngIf="architectureLayers[activeLayer] as layer">
+      <div class="layer-detail" role="tabpanel" *ngIf="architectureLayers[activeLayer] as layer">
         <h3>{{ layer.name }}</h3>
-        <p class="layer-what">{{ layer.what }}</p>
-        <div class="layer-benefit">
-          <i class="fa-solid fa-circle-check"></i>
-          <span>{{ layer.benefit }}</span>
-        </div>
+        <p>{{ layer.what }}</p>
+        <div class="benefit"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>{{ layer.benefit }}</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-banner">
-  <div class="hero-grid-overlay" aria-hidden="true"></div>
-  <div class="cta-content">
-    <h2>Transform Your Factory With Real-Time Insights</h2>
-    <p>Enable smart decision-making at every level of your manufacturing operations.</p>
-    <a [routerLink]="['/contact']" class="cta">
-      Schedule a Free Consultation <i class="fa-solid fa-arrow-right"></i>
-    </a>
+<!-- Case study teaser -->
+<section class="section">
+  <div class="container teaser">
+    <div>
+      <span class="eyebrow dark">Case study</span>
+      <h2>Predictive maintenance at Modern Coach Factory, Raebareli</h2>
+      <p>How CNC machining centers moved from reactive maintenance to a data-driven approach with real-time monitoring, health scores and alerts.</p>
+      <a class="btn primary" routerLink="/case-studies/mcf-predictive-maintenance">Read the case study</a>
+    </div>
+    <app-screenshot-frame file="pdm-risk-matrix.webp" label="Asset risk matrix" alt="ProMonitor asset risk matrix"></app-screenshot-frame>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to Connect Your Factory?</h2>
+    <p>Talk to our team about machine connectivity, Industry 4.0 implementation and ProMonitor.</p>
+    <div class="cta-row center">
+      <a class="btn primary" routerLink="/contact">Talk to Our Experts</a>
+      <a class="btn ghost" routerLink="/contact" [queryParams]="{ topic: 'demo' }">Request a Demo</a>
+    </div>
   </div>
 </section>

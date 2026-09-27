@@ -1,0 +1,282 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">A VAMS Mechatronica industrial software platform</span>
+      <h1>ProMonitor — The Industrial Intelligence Platform</h1>
+      <p class="lead">
+        Connect your machines, monitor operations, understand production and predict problems from a single
+        industrial platform.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" [routerLink]="['/contact']">Talk to Our Experts <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="btn ghost" href="#applications">See the applications</a>
+      </div>
+    </div>
+    <app-screenshot-frame
+      file="dashboard-overview.webp"
+      label="ProMonitor platform dashboard"
+      alt="ProMonitor platform dashboard"
+    ></app-screenshot-frame>
+  </div>
+</section>
+
+<!-- What it is -->
+<section class="section">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow dark">What is ProMonitor?</span>
+      <h2>Machine data, turned into applications people use</h2>
+      <p>
+        ProMonitor is a modular industrial software platform developed by VAMS Mechatronica. A common core
+        connects to industrial equipment, stores machine data and manages assets, users, alerts and events.
+        Applications built on that core then answer specific questions: what the machines are doing, what is being
+        produced, and what is likely to fail.
+      </p>
+      <p>
+        It is a software product, not a consulting service or a single dashboard — VAMS Mechatronica also
+        provides the industrial automation and integration work that connects it to your factory.
+      </p>
+    </div>
+
+    <div class="family" aria-label="VAMS Mechatronica and ProMonitor">
+      <div class="family-node company">VAMS Mechatronica</div>
+      <div class="family-branches">
+        <div class="family-group">
+          <span class="family-label">Services</span>
+          <span>Industrial automation</span>
+          <span>Industry 4.0 engineering</span>
+          <span>Industrial integration</span>
+        </div>
+        <div class="family-group product">
+          <span class="family-label">Product</span>
+          <strong>ProMonitor</strong>
+          <span>Core platform</span>
+          <span>Real-Time Monitoring</span>
+          <span>Production Monitoring</span>
+          <span>Predictive Maintenance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section alt" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">How ProMonitor works</span>
+      <h2>From the shop floor to a decision</h2>
+      <p>Data flows through five stages. Each one is a separate layer of the platform.</p>
+    </div>
+
+    <ol class="flow">
+      <li class="flow-step">
+        <span class="flow-num">1</span>
+        <h3>Industrial equipment</h3>
+        <ul class="chips"><li *ngFor="let e of equipment">{{ e }}</li></ul>
+      </li>
+      <li class="flow-step">
+        <span class="flow-num">2</span>
+        <h3>Industrial connectivity</h3>
+        <ul class="chips"><li *ngFor="let p of protocols">{{ p }}</li></ul>
+      </li>
+      <li class="flow-step core">
+        <span class="flow-num">3</span>
+        <h3>ProMonitor Core</h3>
+        <p>Assets · Telemetry · Events · Alerts · Rules · Users</p>
+      </li>
+      <li class="flow-step">
+        <span class="flow-num">4</span>
+        <h3>Applications</h3>
+        <p>Real-Time Monitoring · Production Monitoring · Predictive Maintenance</p>
+      </li>
+      <li class="flow-step">
+        <span class="flow-num">5</span>
+        <h3>Outcomes</h3>
+        <p>Visibility · Reliability · Productivity · Better decisions</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Industrial connectivity -->
+<section class="section" id="connectivity">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Industrial connectivity</span>
+      <h2>Protocols for CNC, PLC and machine data</h2>
+      <p>
+        Each protocol is a driver in the ProMonitor connectivity agent, so machines from different vendors end up
+        in the same asset model and the same data pipeline.
+      </p>
+    </div>
+
+    <ul class="proto-list proto-grid">
+      <li *ngFor="let p of protocolsAvailable"><strong>{{ p.name }}</strong><span>{{ p.text }}</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Core platform -->
+<section class="section" id="core-platform">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Core platform</span>
+      <h2>One industrial data foundation</h2>
+      <p>
+        The core holds everything that is common to every application, so each new application starts from
+        the same connected assets and data.
+      </p>
+    </div>
+    <div class="grid four">
+      <article class="card" *ngFor="let c of core">
+        <i class="fa-solid" [ngClass]="c.icon" aria-hidden="true"></i>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Applications -->
+<section class="section alt" id="applications">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Applications</span>
+      <h2>Applications on the platform</h2>
+      <p>Available today, and what is planned.</p>
+    </div>
+
+    <div class="grid three">
+      <a class="card app" *ngFor="let a of apps" [routerLink]="['/promonitor', a.slug]">
+        <span class="badge ok">Available</span>
+        <i class="fa-solid" [ngClass]="a.icon" aria-hidden="true"></i>
+        <h3>{{ a.name }}</h3>
+        <p class="q">“{{ a.question }}”</p>
+        <span class="more">Explore {{ a.name }} <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+
+    <div class="also">
+      <span class="badge ok">Available</span>
+      <p><strong>Performance Analytics</strong> — OEE and energy views built on the same core data.</p>
+    </div>
+
+    <div class="roadmap">
+      <h3>Roadmap</h3>
+      <p>Planned, and not yet available:</p>
+      <ul class="chips"><li *ngFor="let r of roadmap"><span class="badge plan">Roadmap</span> {{ r }}</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Screens -->
+<section class="section" id="screens">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">The software</span>
+      <h2>See ProMonitor</h2>
+      <p>Screens from a ProMonitor demonstration environment that uses simulated machine data. Select a screen to enlarge it.</p>
+    </div>
+    <div class="grid two shots">
+      <figure class="shot" *ngFor="let s of gallery">
+        <app-screenshot-frame [file]="s.file" [label]="s.title" [alt]="s.alt"></app-screenshot-frame>
+        <figcaption><strong>{{ s.title }}</strong> {{ s.caption }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Value -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Business value</span>
+      <h2>What it is for</h2>
+    </div>
+    <div class="grid five">
+      <article class="card slim" *ngFor="let v of value">
+        <i class="fa-solid" [ngClass]="v.icon" aria-hidden="true"></i>
+        <h3>{{ v.title }}</h3>
+        <p>{{ v.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Technology -->
+<section class="section" id="technology">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Technology</span>
+      <h2>Built on open, proven technology</h2>
+    </div>
+    <div class="tech">
+      <div class="tech-row" *ngFor="let g of tech">
+        <h3>{{ g.title }}</h3>
+        <ul class="chips"><li *ngFor="let i of g.items">{{ i }}</li></ul>
+        <p>{{ g.why }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security + deployment -->
+<section class="section alt" id="security">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow dark">Security</span>
+      <h2>Access control built into the core</h2>
+      <div class="grid one">
+        <article class="card slim row" *ngFor="let s of security">
+          <i class="fa-solid" [ngClass]="s.icon" aria-hidden="true"></i>
+          <div><h3>{{ s.title }}</h3><p>{{ s.text }}</p></div>
+        </article>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow dark">Deployment and integration</span>
+      <h2>SaaS in the cloud, or on-premise</h2>
+      <div class="deploy">
+        <div class="deploy-box"><i class="fa-solid fa-cloud" aria-hidden="true"></i><div><strong>SaaS (cloud)</strong><span>Hosted service; connect your machines to it.</span></div></div>
+        <div class="deploy-box"><i class="fa-solid fa-server" aria-hidden="true"></i><div><strong>On-premise</strong><span>Installed inside your plant network.</span></div></div>
+      </div>
+      <p>
+        ProMonitor runs as a set of Docker containers: the API, background workers, the connectivity agent, the
+        machine-learning service and the data stores. Other systems reach it through a REST API and a live
+        WebSocket stream, and a Kafka bridge can feed it existing telemetry.
+      </p>
+      <p class="note">
+        Which option fits your site — and how it is set up — is planned together with our team.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Industries -->
+<section class="section" id="industries">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Industries</span>
+      <h2>Where we have implemented</h2>
+    </div>
+    <div class="grid two industries">
+      <article class="card"><i class="fa-solid fa-train" aria-hidden="true"></i><h3>Railways</h3><p>VAMS Mechatronica has delivered implementations in the railway sector.</p></article>
+      <article class="card"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><h3>Defence</h3><p>VAMS Mechatronica has delivered implementations in the defence sector.</p></article>
+    </div>
+    <p class="more-link"><a [routerLink]="['/case-studies']">Read our case studies <i class="fa-solid fa-arrow-right"></i></a></p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to Connect Your Factory?</h2>
+    <p>Talk to our team about machine connectivity, Industry 4.0 implementation and ProMonitor.</p>
+    <div class="cta-row center">
+      <a class="btn primary" [routerLink]="['/contact']">Talk to Our Experts</a>
+      <a class="btn ghost light" [routerLink]="['/contact']" [queryParams]="{ topic: 'demo' }">Request a Demo</a>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,57 @@
+[[redirects]]
+from = "/products"
+to = "/promonitor"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/realtime-monitoring"
+to = "/promonitor/real-time-monitoring"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/realtime-monitoring/details"
+to = "/promonitor/real-time-monitoring"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/predictive-maintenance"
+to = "/promonitor/predictive-maintenance"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/predictive-maintenance/details"
+to = "/promonitor/predictive-maintenance"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/production-scheduling"
+to = "/promonitor/production-monitoring"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/robotics-integration"
+to = "/promonitor"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/energy-monitoring"
+to = "/promonitor"
+status = 301
+force = true
+
+[[redirects]]
+from = "/products/material-rfid-tracking"
+to = "/promonitor"
+status = 301
+force = true
+
 [build]
 command = "npm run build"
 publish = "dist/vamsmechatronica/browser"

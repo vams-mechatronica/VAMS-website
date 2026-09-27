@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-careers',
@@ -9,15 +9,13 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class CareersComponent implements OnInit {
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(private seo: SeoService) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Careers | VAMS Mechatronica');
-    this.meta.updateTag({
-      name: 'description',
-      content: 'Join VAMS Mechatronica and build Industry 4.0, IIoT and industrial automation solutions for manufacturers.',
+    this.seo.set({
+      title: 'Careers | VAMS Mechatronica',
+      description: 'Work with VAMS Mechatronica on industrial software, machine connectivity and Industry 4.0.',
+      path: '/careers',
     });
-    this.meta.updateTag({ property: 'og:title', content: 'Careers | VAMS Mechatronica' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
   }
 }

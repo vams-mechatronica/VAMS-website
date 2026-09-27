@@ -9,6 +9,11 @@
     --highlight: #00E6E6;
     --text-dark: #1A1A1A;
     --background-light: #F5F7FA;
+    --header-height: 76px;
+}
+
+@media (max-width: 768px) {
+    :root { --header-height: 66px; }
 }
 
 
@@ -18,12 +23,12 @@ body {
 }
 
 html {
-    scroll-padding-top: 100px;
+    scroll-padding-top: calc(var(--header-height) + 16px);
 }
 
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 88px;
+        scroll-padding-top: calc(var(--header-height) + 16px);
     }
 }
 
@@ -51,4 +56,26 @@ a {
 .flex {
     display: flex;
     align-items: center;
+}
+/* Buttons that go full-width on mobile must include padding in that width */
+.btn { box-sizing: border-box; }
+
+/* VAMS logo watermark on every page. Sits above section backgrounds so it shows
+   on light and dark sections alike; faint and non-interactive. */
+body::after {
+    content: '';
+    position: fixed;
+    top: calc(50% + var(--header-height) / 2);
+    left: 50%;
+    width: min(62vw, 620px);
+    aspect-ratio: 809 / 446;
+    transform: translate(-50%, -50%);
+    background: url('/assets/logos/VAMS_new_logo.png') center / contain no-repeat;
+    opacity: 0.055;
+    pointer-events: none;
+    z-index: 500;
+}
+
+@media print {
+    body::after { display: none; }
 }

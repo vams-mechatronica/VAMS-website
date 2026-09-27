@@ -1,0 +1,145 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Proof of concept · runs on simulated factory data</span>
+      <h1>AI Adaptive Job Shop Scheduling</h1>
+      <p class="lead">
+        A production schedule that re-plans when the shop floor changes. When a machine goes down or an urgent order
+        arrives, the scheduler measures the impact, recommends a new schedule and a planner approves it.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" routerLink="/contact" [queryParams]="{ topic: 'scheduling' }">Discuss a Pilot</a>
+        <a class="btn ghost" href="#how">How it works</a>
+      </div>
+    </div>
+    <app-screenshot-frame
+      file="scheduler-board.webp"
+      brand="Adaptive Scheduler"
+      label="Scheduling board"
+      alt="Adaptive scheduler Gantt board showing jobs per machine"
+    ></app-screenshot-frame>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">The problem</span>
+      <h2>A fixed schedule is out of date within hours</h2>
+      <p>Job shops run many different orders across many machines. The plan made in the morning rarely survives the shift.</p>
+    </div>
+    <div class="grid four">
+      <article class="card" *ngFor="let d of disruptions">
+        <i class="fa-solid" [ngClass]="d.icon" aria-hidden="true"></i>
+        <h3>{{ d.title }}</h3>
+        <p>{{ d.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">How it works</span>
+      <h2>Detect, measure, optimize, approve</h2>
+      <p>The scheduler works as a closed loop, and a person stays in control of every change that reaches the shop floor.</p>
+    </div>
+    <ol class="steps">
+      <li class="step" *ngFor="let s of steps; let i = index">
+        <span class="num">{{ i + 1 }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+      </li>
+    </ol>
+    <ul class="loop" aria-label="Adaptive loop">
+      <li *ngFor="let l of loop">{{ l }}</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Capabilities</span>
+      <h2>What the scheduler does</h2>
+    </div>
+    <div class="grid four">
+      <article class="card" *ngFor="let c of capabilities">
+        <i class="fa-solid" [ngClass]="c.icon" aria-hidden="true"></i>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="screens">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">The application</span>
+      <h2>Screens</h2>
+      <p>Screens are from a demonstration environment that uses a built-in factory simulator with sample machines and orders.</p>
+    </div>
+    <div class="grid two shots">
+      <figure class="shot" *ngFor="let s of gallery">
+        <app-screenshot-frame [file]="s.file" brand="Adaptive Scheduler" [label]="s.title" [alt]="s.alt"></app-screenshot-frame>
+        <figcaption><strong>{{ s.title }}</strong>{{ s.caption }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="outcomes">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow dark">Expected outcomes</span>
+      <h2>What implementing it should improve</h2>
+      <p>
+        These are the results a plant should target and measure. The scheduler reports each as a KPI, comparing the
+        current schedule with the recommended one. We agree the baseline and targets with you in a pilot; we do not
+        quote figures from the simulator.
+      </p>
+    </div>
+    <div class="grid three">
+      <article class="card" *ngFor="let o of outcomes">
+        <i class="fa-solid" [ngClass]="o.icon" aria-hidden="true"></i>
+        <h3>{{ o.title }}</h3>
+        <p>{{ o.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow dark">With ProMonitor</span>
+      <h2>Built to connect to real machine data</h2>
+      <p>
+        Today the scheduler runs on a factory simulator. Real-time data enters through a single data-provider
+        interface, so ProMonitor’s machine states, production counts and health signals can replace the simulator
+        without changing the scheduling engine, the approval workflow or the screens.
+      </p>
+      <p class="status"><span class="pill">Status</span> Proof of concept. The ProMonitor integration is planned; ERP and MES integration are not part of the current scope.</p>
+      <a class="text-link" routerLink="/promonitor">See ProMonitor <span aria-hidden="true">→</span></a>
+    </div>
+    <div>
+      <h3>Technology</h3>
+      <ul class="chips">
+        <li *ngFor="let t of tech">{{ t }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Want to see it on your orders and machines?</h2>
+    <p>Talk to our team about a pilot: your machines, your routings, your KPIs.</p>
+    <div class="cta-row center">
+      <a class="btn primary" routerLink="/contact" [queryParams]="{ topic: 'scheduling' }">Discuss a Pilot</a>
+      <a class="btn ghost" routerLink="/promonitor">Explore ProMonitor</a>
+    </div>
+  </div>
+</section>

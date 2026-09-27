@@ -1,0 +1,116 @@
+<section class="hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a routerLink="/case-studies">Case Studies</a> <span aria-hidden="true">/</span> <span>{{ study.industry }}</span>
+    </nav>
+    <span class="tag">{{ study.industry }}</span>
+    <h1>{{ study.title }}</h1>
+    <p class="lead">{{ study.summary }}</p>
+  </div>
+</section>
+
+<section class="outcomes-band" aria-label="Outcomes">
+  <div class="container outcomes">
+    <div class="outcome" *ngFor="let o of study.outcomes">
+      <strong>{{ o.value }}</strong>
+      <span>{{ o.label }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Overview</span>
+      <h2>{{ study.client.heading }}</h2>
+      <p>{{ study.client.text }}</p>
+    </div>
+    <div>
+      <span class="eyebrow">The challenge</span>
+      <h2>Operational challenges</h2>
+      <ul class="ticks">
+        <li *ngFor="let c of study.challenges">{{ c }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Solution</span>
+      <h2>What was implemented</h2>
+      <p>{{ study.solution.text }}</p>
+    </div>
+    <div class="cards">
+      <article class="card" *ngFor="let c of study.solution.cards">
+        <i class="fa-solid" [ngClass]="c.icon" aria-hidden="true"></i>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" *ngIf="study.shots?.length">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">The platform in use</span>
+      <h2>ProMonitor screens</h2>
+      <p>{{ study.shotsNote }}</p>
+    </div>
+    <div class="shots">
+      <figure *ngFor="let s of study.shots">
+        <app-screenshot-frame [file]="s.file" [label]="s.title" [alt]="s.alt"></app-screenshot-frame>
+        <figcaption><strong>{{ s.title }}</strong>{{ s.caption }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" [class.alt]="study.shots?.length">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Visibility</span>
+      <h2>Dashboards and views</h2>
+      <ul class="ticks">
+        <li *ngFor="let v of study.views">{{ v }}</li>
+      </ul>
+    </div>
+    <div *ngIf="study.benefits?.length">
+      <span class="eyebrow">Results</span>
+      <h2>Benefits</h2>
+      <ul class="ticks">
+        <li *ngFor="let b of study.benefits">{{ b }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section conclusion">
+  <div class="container narrow">
+    <h2>Conclusion</h2>
+    <p>{{ study.conclusion }}</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="head"><h2>More case studies</h2></div>
+    <div class="cards">
+      <a class="card link" *ngFor="let o of others" [routerLink]="['/case-studies', o.slug]">
+        <span class="tag">{{ o.industry }}</span>
+        <h3>{{ o.title }}</h3>
+        <p>{{ o.summary }}</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Want results like these in your plant?</h2>
+    <p>Talk to our team about connecting your machines and monitoring them with ProMonitor.</p>
+    <a class="btn" routerLink="/contact">Talk to Our Experts</a>
+  </div>
+</section>

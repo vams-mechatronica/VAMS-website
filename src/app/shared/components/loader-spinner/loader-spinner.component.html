@@ -1,3 +1,11 @@
-<div class="global-loader" *ngIf="visible">
-    <div class="spinner"></div>
+<div class="progress" *ngIf="active" [class.done]="done" role="progressbar" aria-label="Loading page" aria-busy="true">
+  <span class="bar"></span>
+</div>
+
+<div class="overlay" *ngIf="slow" role="status" aria-live="polite">
+  <div class="mark">
+    <span class="ring"></span>
+    <span class="logo">V</span>
+  </div>
+  <p>Loading</p>
 </div>

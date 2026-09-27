@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [class.scrolled]="scrolled">
   <div class="container header-content">
 
     <a class="logo-box" [routerLink]="['/']" (click)="closeMenu()">
@@ -8,6 +8,8 @@
     <!-- Desktop Navigation -->
     <nav class="nav">
       <a [routerLink]="['/']" fragment="services">Solutions</a>
+      <a [routerLink]="['/promonitor']" routerLinkActive="active">ProMonitor</a>
+      <a [routerLink]="['/job-shop-scheduling']" routerLinkActive="active">Scheduling</a>
       <a [routerLink]="['/industries']" routerLinkActive="active">Industries</a>
       <a [routerLink]="['/case-studies']" routerLinkActive="active">Case Studies</a>
       <a [routerLink]="['/about']" routerLinkActive="active">About</a>
@@ -41,6 +43,8 @@
   ></div>
   <nav class="mobile-nav" [class.open]="isMenuOpen">
     <a [routerLink]="['/']" fragment="services" (click)="closeMenu()">Solutions</a>
+    <a [routerLink]="['/promonitor']" routerLinkActive="active" (click)="closeMenu()">ProMonitor</a>
+    <a [routerLink]="['/job-shop-scheduling']" routerLinkActive="active" (click)="closeMenu()">Scheduling</a>
     <a [routerLink]="['/industries']" routerLinkActive="active" (click)="closeMenu()">Industries</a>
     <a [routerLink]="['/case-studies']" routerLinkActive="active" (click)="closeMenu()">Case Studies</a>
     <a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">About</a>

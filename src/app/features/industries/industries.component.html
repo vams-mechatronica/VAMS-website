@@ -2,7 +2,7 @@
   <div class="overlay"></div>
   <div class="content">
     <h1>Industries We Serve</h1>
-    <p>Industry 4.0 and industrial automation solutions across manufacturing and process-driven sectors.</p>
+    <p>Industry 4.0 and industrial automation solutions for railways, defence and manufacturing and process-driven sectors.</p>
   </div>
 </section>
 
@@ -10,11 +10,12 @@
   <div class="industries-grid">
     <div class="industry-card" *ngFor="let industry of industries">
       <div class="icon">
-        <img [src]="industry.icon" loading="lazy" [alt]="industry.name" />
+        <i *ngIf="isFaIcon(industry.icon)" class="fa-solid" [ngClass]="industry.icon" aria-hidden="true"></i>
+        <img *ngIf="!isFaIcon(industry.icon)" [src]="industry.icon" loading="lazy" [alt]="industry.name" />
       </div>
       <h3>{{ industry.name }}</h3>
       <p>{{ industry.description }}</p>
-      <ul>
+      <ul *ngIf="industry.applications.length">
         <li *ngFor="let app of industry.applications">{{ app }}</li>
       </ul>
     </div>
@@ -25,6 +26,6 @@
   <div class="cta-content">
     <h2>Don't See Your Industry Listed?</h2>
     <p>Our engineering team adapts automation and monitoring solutions to industry-specific processes.</p>
-    <a [routerLink]="['/contact']" class="cta">Talk to an Engineer</a>
+    <a [routerLink]="['/contact']" class="cta">Talk to Our Experts</a>
   </div>
 </section>
