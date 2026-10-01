@@ -1,22 +1,5 @@
-import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { SeoService } from '../../core/services/seo.service';
-
-interface YouTubePlayer { setPlaybackQuality(quality: string): void; }
-interface YouTubePlayerReadyEvent { target: YouTubePlayer; }
-interface YouTubeNamespace {
-  Player: new (
-    elementId: string,
-    options: { events: { onReady: (e: YouTubePlayerReadyEvent) => void } },
-  ) => YouTubePlayer;
-}
-
-declare global {
-  interface Window {
-    YT?: YouTubeNamespace;
-    onYouTubeIframeAPIReady?: () => void;
-  }
-}
 
 interface Capability { icon: string; title: string; points: string[]; link?: { label: string; url: string }; }
 interface Layer { name: string; what: string; benefit: string; }
@@ -28,7 +11,7 @@ interface Industry { icon: string; title: string; text: string; delivered?: bool
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
   readonly protocols = ['OPC UA', 'Modbus TCP', 'MQTT', 'MTConnect', 'FOCAS', 'Siemens'];
 
   readonly capabilities: Capability[] = [
@@ -62,7 +45,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     { name: 'Business Decisions', what: 'Production, maintenance and management teams act on the same real-time picture of the factory.', benefit: 'Faster, data-backed decisions instead of end-of-shift guesswork.' },
   ];
 
-  constructor(private seo: SeoService, @Inject(PLATFORM_ID) private platformId: object) { }
+  constructor(private seo: SeoService) { }
 
   ngOnInit(): void {
     this.seo.set({
@@ -71,37 +54,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
         'VAMS Mechatronica develops industrial automation and Industry 4.0 solutions, including ProMonitor for machine connectivity, real-time monitoring, production intelligence and predictive maintenance.',
       path: '/',
     });
-  }
-
-  ngAfterViewInit(): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-
-    const createPlayer = () => {
-      new window.YT!.Player('promonitor-hero-video', {
-        events: {
-          // The hero video should play clearly at a glance; YouTube no longer
-          // honours a default-quality URL parameter, so it's set via the API.
-          onReady: (e) => e.target.setPlaybackQuality('hd720'),
-        },
-      });
-    };
-
-    if (window.YT?.Player) {
-      createPlayer();
-      return;
-    }
-
-    const previousCallback = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      previousCallback?.();
-      createPlayer();
-    };
-
-    if (!document.getElementById('youtube-iframe-api')) {
-      const script = document.createElement('script');
-      script.id = 'youtube-iframe-api';
-      script.src = 'https://www.youtube.com/iframe_api';
-      document.head.appendChild(script);
-    }
   }
 }

@@ -1,0 +1,16 @@
+<div class="frame">
+  <div class="bar" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <em>{{ brand }}</em>
+  </div>
+  <div class="video-body">
+    <iframe
+      [id]="elementId"
+      [src]="src"
+      [title]="videoTitle"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+      frameborder="0"
+    ></iframe>
+  </div>
+</div>
