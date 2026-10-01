@@ -1,0 +1,67 @@
+:host { display: block; }
+
+.banner {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 3000;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 10px;
+  background: var(--primary, #0A3D62);
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  flex: 1 1 320px;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #e3ecf3;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn {
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+  &:focus-visible { outline: 3px solid var(--highlight, #00E6E6); outline-offset: 2px; }
+
+  &.primary {
+    background: var(--secondary, #2FA15A);
+    color: #fff;
+    &:hover { background: var(--secondary--dark, #1F7A3A); }
+  }
+
+  &.ghost {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+    &:hover { background: rgba(255, 255, 255, 0.12); }
+  }
+}
+
+@media (max-width: 560px) {
+  .banner { left: 12px; right: 12px; bottom: 12px; padding: 16px; flex-direction: column; align-items: stretch; }
+  // flex-basis: 320px above sizes width in row layout; in column layout the
+  // main axis is vertical, so the same basis would force a 320px-tall <p>.
+  p { flex-basis: auto; }
+  .actions { justify-content: flex-end; }
+}

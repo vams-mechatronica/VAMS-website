@@ -14,8 +14,8 @@
       </p>
 
       <div class="hero-cta">
-        <a [routerLink]="['/contact']" class="cta-btn">Talk to an Engineer <i class="fa-solid fa-arrow-right"></i></a>
-        <a class="ghost-btn" href="/assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf">
+        <a [routerLink]="['/contact']" class="cta-btn" appTrackClick>Talk to an Engineer <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="ghost-btn" href="/assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf" appTrackClick>
           <i class="fa-solid fa-file-arrow-down"></i> Download Brochure
         </a>
       </div>
@@ -58,7 +58,7 @@
       </div>
       <h3>Live Dashboards</h3>
       <p>Monitor machine health, energy usage, KPIs, cycle times and more with beautiful real-time charts.</p>
-      <a class="learn-more" [routerLink]="['/products/realtime-monitoring/details']">Learn More →</a>
+      <a class="learn-more" [routerLink]="['/products/realtime-monitoring/details']" appTrackClick="Learn More: Live Dashboards">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -67,7 +67,7 @@
       </div>
       <h3>Instant Alerts</h3>
       <p>Get immediate notifications for breakdowns, anomalies, idle machines, or threshold violations.</p>
-      <a class="learn-more disabled" href="#">Learn More →</a>
+      <a class="learn-more disabled" href="#" appTrackClick="Learn More: Instant Alerts">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -76,7 +76,7 @@
       </div>
       <h3>Edge & Cloud Sync</h3>
       <p>Ultra-low latency edge gateways ensure reliable data even if internet connectivity drops.</p>
-      <a class="learn-more disabled" href="#">Learn More →</a>
+      <a class="learn-more disabled" href="#" appTrackClick="Learn More: Edge & Cloud Sync">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -85,7 +85,7 @@
       </div>
       <h3>Multi-Protocol Support</h3>
       <p>Seamless integration with OPC-UA, Modbus, MQTT, REST APIs, PLCs and industrial robots.</p>
-      <a class="learn-more disabled" href="#">Learn More →</a>
+      <a class="learn-more disabled" href="#" appTrackClick="Learn More: Multi-Protocol Support">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -94,7 +94,7 @@
       </div>
       <h3>KPI Tracking</h3>
       <p>Track OEE, Productivity, Quality Index, Downtime Metrics and custom production KPIs.</p>
-      <a class="learn-more disabled" href="#">Learn More →</a>
+      <a class="learn-more disabled" href="#" appTrackClick="Learn More: KPI Tracking">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -103,7 +103,7 @@
       </div>
       <h3>Digital Twin View</h3>
       <p>Visualize factory layout, machine states and live events in a digital twin 3D interface.</p>
-      <a class="learn-more disabled" href="#">Learn More →</a>
+      <a class="learn-more disabled" href="#" appTrackClick="Learn More: Digital Twin View">Learn More →</a>
     </div>
 
 
@@ -115,6 +115,6 @@
   <div class="cta-content">
     <h2>Transform Your Factory With Real-Time Insights</h2>
     <p>Enable smart decision-making at every level of your manufacturing operations.</p>
-    <button class="cta">Schedule a Free Consultation</button>
+    <button class="cta" appTrackClick>Schedule a Free Consultation</button>
   </div>
 </section>

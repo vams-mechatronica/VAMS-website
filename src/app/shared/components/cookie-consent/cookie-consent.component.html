@@ -1,0 +1,10 @@
+<div class="banner" *ngIf="show$ | async" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <p>
+    We use cookies to understand how visitors use this site (Google Analytics). No data is stored until
+    you accept.
+  </p>
+  <div class="actions">
+    <button type="button" class="btn ghost" (click)="reject()">Reject</button>
+    <button type="button" class="btn primary" (click)="accept()">Accept</button>
+  </div>
+</div>

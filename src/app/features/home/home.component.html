@@ -9,8 +9,8 @@
         real-time visibility, production intelligence and predictive insight.
       </p>
       <div class="cta-row">
-        <a class="btn primary" routerLink="/promonitor">Explore ProMonitor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-        <a class="btn ghost" routerLink="/contact">Talk to Our Experts</a>
+        <a class="btn primary" routerLink="/promonitor" appTrackClick>Explore ProMonitor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn ghost" routerLink="/contact" appTrackClick>Talk to Our Experts</a>
       </div>
       <ul class="proto-chips" aria-label="Supported protocols">
         <li *ngFor="let p of protocols">{{ p }}</li>
@@ -51,7 +51,7 @@
         <ul>
           <li *ngFor="let p of c.points">{{ p }}</li>
         </ul>
-        <a *ngIf="c.link" class="text-link" [routerLink]="c.link.url">{{ c.link.label }} <span aria-hidden="true">→</span></a>
+        <a *ngIf="c.link" class="text-link" [routerLink]="c.link.url" appTrackClick>{{ c.link.label }} <span aria-hidden="true">→</span></a>
       </article>
     </div>
   </div>
@@ -69,7 +69,7 @@
       <div class="feature-copy">
         <h3>Real-Time Monitoring</h3>
         <p>Live machine states, telemetry and alarms across plants, lines and machines, so operators and management see the same picture as it changes.</p>
-        <a class="text-link" routerLink="/promonitor/real-time-monitoring">Real-Time Monitoring <span aria-hidden="true">→</span></a>
+        <a class="text-link" routerLink="/promonitor/real-time-monitoring" appTrackClick>Real-Time Monitoring <span aria-hidden="true">→</span></a>
       </div>
       <app-screenshot-frame file="monitoring-machine.webp" label="Machine live telemetry" alt="ProMonitor live machine telemetry"></app-screenshot-frame>
     </div>
@@ -78,7 +78,7 @@
       <div class="feature-copy">
         <h3>Predictive Maintenance</h3>
         <p>Health scores, failure probability and remaining useful life for every asset, with a risk matrix that shows which machines need attention first.</p>
-        <a class="text-link" routerLink="/promonitor/predictive-maintenance">Predictive Maintenance <span aria-hidden="true">→</span></a>
+        <a class="text-link" routerLink="/promonitor/predictive-maintenance" appTrackClick>Predictive Maintenance <span aria-hidden="true">→</span></a>
       </div>
       <app-screenshot-frame file="pdm-overview.webp" label="Predictive maintenance overview" alt="ProMonitor predictive maintenance overview"></app-screenshot-frame>
     </div>
@@ -87,13 +87,13 @@
       <div class="feature-copy">
         <h3>Adaptive Job Shop Scheduling</h3>
         <p>A scheduler that re-plans when a machine breaks down or an order changes, and lets a planner approve the recommended schedule. Currently a proof of concept.</p>
-        <a class="text-link" routerLink="/job-shop-scheduling">Job Shop Scheduling <span aria-hidden="true">→</span></a>
+        <a class="text-link" routerLink="/job-shop-scheduling" appTrackClick>Job Shop Scheduling <span aria-hidden="true">→</span></a>
       </div>
       <app-screenshot-frame file="scheduler-board.webp" brand="Adaptive Scheduler" label="Scheduling board" alt="Adaptive scheduler Gantt board"></app-screenshot-frame>
     </div>
 
     <p class="also"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> ProMonitor also includes
-      <a routerLink="/promonitor/production-monitoring">Production Monitoring</a> for plan versus actual output.</p>
+      <a routerLink="/promonitor/production-monitoring" appTrackClick>Production Monitoring</a> for plan versus actual output.</p>
   </div>
 </section>
 
@@ -112,7 +112,7 @@
         <p>{{ i.text }}</p>
       </article>
     </div>
-    <p class="more"><a class="text-link" routerLink="/industries">All industries <span aria-hidden="true">→</span></a></p>
+    <p class="more"><a class="text-link" routerLink="/industries" appTrackClick>All industries <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -136,6 +136,7 @@
           (click)="activeLayer = i"
           (mouseenter)="activeLayer = i"
           (focus)="activeLayer = i"
+          appTrackClick
         >
           <span class="layer-index">{{ i + 1 }}</span>
           <span>{{ layer.name }}</span>
@@ -157,7 +158,7 @@
       <span class="eyebrow dark">Case study</span>
       <h2>Predictive maintenance at Modern Coach Factory, Raebareli</h2>
       <p>How CNC machining centers moved from reactive maintenance to a data-driven approach with real-time monitoring, health scores and alerts.</p>
-      <a class="btn primary" routerLink="/case-studies/mcf-predictive-maintenance">Read the case study</a>
+      <a class="btn primary" routerLink="/case-studies/mcf-predictive-maintenance" appTrackClick>Read the case study</a>
     </div>
     <app-screenshot-frame file="pdm-risk-matrix.webp" label="Asset risk matrix" alt="ProMonitor asset risk matrix"></app-screenshot-frame>
   </div>
@@ -169,8 +170,8 @@
     <h2>Ready to Connect Your Factory?</h2>
     <p>Talk to our team about machine connectivity, Industry 4.0 implementation and ProMonitor.</p>
     <div class="cta-row center">
-      <a class="btn primary" routerLink="/contact">Talk to Our Experts</a>
-      <a class="btn ghost" routerLink="/contact" [queryParams]="{ topic: 'demo' }">Request a Demo</a>
+      <a class="btn primary" routerLink="/contact" appTrackClick>Talk to Our Experts</a>
+      <a class="btn ghost" routerLink="/contact" [queryParams]="{ topic: 'demo' }" appTrackClick>Request a Demo</a>
     </div>
   </div>
 </section>

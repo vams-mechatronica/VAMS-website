@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -35,7 +35,7 @@ let nextId = 0;
   templateUrl: './youtube-video-frame.component.html',
   styleUrl: './youtube-video-frame.component.scss',
 })
-export class YoutubeVideoFrameComponent implements AfterViewInit {
+export class YoutubeVideoFrameComponent implements OnInit, AfterViewInit {
   /** YouTube video ID, e.g. 'zvdlI5WFUjc' (from youtu.be/zvdlI5WFUjc). */
   @Input({ required: true }) videoId!: string;
   @Input() brand = 'ProMonitor';
@@ -45,17 +45,26 @@ export class YoutubeVideoFrameComponent implements AfterViewInit {
 
   readonly elementId = `yt-video-frame-${nextId++}`;
 
+  /**
+   * Computed once in ngOnInit, not as a getter: bypassSecurityTrustResourceUrl
+   * returns a new wrapper object on every call, and a `[src]` binding re-run
+   * on every change-detection pass would make Angular treat that as a new
+   * value each time and keep re-assigning iframe.src — reloading the embed
+   * repeatedly (visible as flicker until change detection quiets down).
+   */
+  src!: SafeResourceUrl;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
     private sanitizer: DomSanitizer,
   ) {}
 
-  get src(): SafeResourceUrl {
+  ngOnInit(): void {
     const url = `https://www.youtube-nocookie.com/embed/${this.videoId}` +
       `?autoplay=1&mute=1&loop=1&playlist=${this.videoId}&controls=1&playsinline=1&rel=0&enablejsapi=1`;
     // Built entirely from a hardcoded host and the component's own `videoId`
     // input (never raw user input), so trusting it here is safe.
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    this.src = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngAfterViewInit(): void {

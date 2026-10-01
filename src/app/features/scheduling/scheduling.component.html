@@ -8,8 +8,8 @@
         arrives, the scheduler measures the impact, recommends a new schedule and a planner approves it.
       </p>
       <div class="cta-row">
-        <a class="btn primary" routerLink="/contact" [queryParams]="{ topic: 'scheduling' }">Discuss a Pilot</a>
-        <a class="btn ghost" href="#how">How it works</a>
+        <a class="btn primary" routerLink="/contact" [queryParams]="{ topic: 'scheduling' }" appTrackClick="Hero: Discuss a Pilot">Discuss a Pilot</a>
+        <a class="btn ghost" href="#how" appTrackClick>How it works</a>
       </div>
     </div>
     <app-youtube-video-frame
@@ -121,7 +121,7 @@
         without changing the scheduling engine, the approval workflow or the screens.
       </p>
       <p class="status"><span class="pill">Status</span> Proof of concept. The ProMonitor integration is planned; ERP and MES integration are not part of the current scope.</p>
-      <a class="text-link" routerLink="/promonitor">See ProMonitor <span aria-hidden="true">→</span></a>
+      <a class="text-link" routerLink="/promonitor" appTrackClick>See ProMonitor <span aria-hidden="true">→</span></a>
     </div>
     <div>
       <h3>Technology</h3>
@@ -137,8 +137,8 @@
     <h2>Want to see it on your orders and machines?</h2>
     <p>Talk to our team about a pilot: your machines, your routings, your KPIs.</p>
     <div class="cta-row center">
-      <a class="btn primary" routerLink="/contact" [queryParams]="{ topic: 'scheduling' }">Discuss a Pilot</a>
-      <a class="btn ghost" routerLink="/promonitor">Explore ProMonitor</a>
+      <a class="btn primary" routerLink="/contact" [queryParams]="{ topic: 'scheduling' }" appTrackClick="CTA band: Discuss a Pilot">Discuss a Pilot</a>
+      <a class="btn ghost" routerLink="/promonitor" appTrackClick>Explore ProMonitor</a>
     </div>
   </div>
 </section>

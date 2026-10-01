@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { ContactService } from '../../core/services/contact.service';
+import { AnalyticsService } from '../../core/services/analytics.service';
 
 @Component({
   selector: 'app-contact',
@@ -20,7 +21,8 @@ export class ContactComponent implements OnInit {
     private fb: FormBuilder,
     private contactService: ContactService,
     private route: ActivatedRoute,
-    private seo: SeoService
+    private seo: SeoService,
+    private analytics: AnalyticsService
   ) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
@@ -59,6 +61,12 @@ export class ContactComponent implements OnInit {
     this.contactService.submitContactForm(payload).subscribe({
       next: () => {
         this.successMessage = 'Message sent successfully. We will get back to you soon.';
+        // This is the lead-gen conversion for the whole site — mark it as a
+        // key event in GA4 (Admin > Events) once it starts appearing.
+        this.analytics.trackEvent('generate_lead', {
+          form: 'contact',
+          subject: payload.subject || '(none)',
+        });
         this.contactForm.reset();
         this.loading = false;
       },

@@ -1,19 +1,19 @@
 <header class="header" [class.scrolled]="scrolled">
   <div class="container header-content">
 
-    <a class="logo-box" [routerLink]="['/']" (click)="closeMenu()">
+    <a class="logo-box" [routerLink]="['/']" (click)="closeMenu()" appTrackClick="Logo">
       <img src="assets/logos/VAMS_new_logo.png" loading="lazy" alt="VAMS Mechatronica" />
     </a>
 
     <!-- Desktop Navigation -->
     <nav class="nav">
-      <a [routerLink]="['/']" fragment="services">Solutions</a>
-      <a [routerLink]="['/promonitor']" routerLinkActive="active">ProMonitor</a>
-      <a [routerLink]="['/job-shop-scheduling']" routerLinkActive="active">Scheduling</a>
-      <a [routerLink]="['/industries']" routerLinkActive="active">Industries</a>
-      <a [routerLink]="['/case-studies']" routerLinkActive="active">Case Studies</a>
-      <a [routerLink]="['/about']" routerLinkActive="active">About</a>
-      <a [routerLink]="['/contact']" class="contact-btn">Contact Us</a>
+      <a [routerLink]="['/']" fragment="services" appTrackClick>Solutions</a>
+      <a [routerLink]="['/promonitor']" routerLinkActive="active" appTrackClick>ProMonitor</a>
+      <a [routerLink]="['/job-shop-scheduling']" routerLinkActive="active" appTrackClick>Scheduling</a>
+      <a [routerLink]="['/industries']" routerLinkActive="active" appTrackClick>Industries</a>
+      <a [routerLink]="['/case-studies']" routerLinkActive="active" appTrackClick>Case Studies</a>
+      <a [routerLink]="['/about']" routerLinkActive="active" appTrackClick>About</a>
+      <a [routerLink]="['/contact']" class="contact-btn" appTrackClick>Contact Us</a>
     </nav>
 
     <!-- Mobile Toggle -->
@@ -23,6 +23,7 @@
       aria-label="Toggle menu"
       [attr.aria-expanded]="isMenuOpen"
       (click)="toggleMenu()"
+      appTrackClick="Mobile menu toggle"
     >
       <span></span>
       <span></span>
@@ -42,15 +43,14 @@
     (keydown.space)="closeMenu()"
   ></div>
   <nav class="mobile-nav" [class.open]="isMenuOpen">
-    <a [routerLink]="['/']" fragment="services" (click)="closeMenu()">Solutions</a>
-    <a [routerLink]="['/promonitor']" routerLinkActive="active" (click)="closeMenu()">ProMonitor</a>
-    <a [routerLink]="['/job-shop-scheduling']" routerLinkActive="active" (click)="closeMenu()">Scheduling</a>
-    <a [routerLink]="['/industries']" routerLinkActive="active" (click)="closeMenu()">Industries</a>
-    <a [routerLink]="['/case-studies']" routerLinkActive="active" (click)="closeMenu()">Case Studies</a>
-    <a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">About</a>
-    <a [routerLink]="['/contact']" class="contact-btn" (click)="closeMenu()">
+    <a [routerLink]="['/']" fragment="services" (click)="closeMenu()" appTrackClick>Solutions</a>
+    <a [routerLink]="['/promonitor']" routerLinkActive="active" (click)="closeMenu()" appTrackClick>ProMonitor</a>
+    <a [routerLink]="['/job-shop-scheduling']" routerLinkActive="active" (click)="closeMenu()" appTrackClick>Scheduling</a>
+    <a [routerLink]="['/industries']" routerLinkActive="active" (click)="closeMenu()" appTrackClick>Industries</a>
+    <a [routerLink]="['/case-studies']" routerLinkActive="active" (click)="closeMenu()" appTrackClick>Case Studies</a>
+    <a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()" appTrackClick>About</a>
+    <a [routerLink]="['/contact']" class="contact-btn" (click)="closeMenu()" appTrackClick>
       Contact Us
     </a>
   </nav>
 </header>
-

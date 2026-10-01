@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { IndustriesRoutingModule } from './industries-routing.module';
 import { IndustriesComponent } from './industries.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { IndustriesComponent } from './industries.component';
   imports: [
     CommonModule,
     RouterModule,
-    IndustriesRoutingModule
+    IndustriesRoutingModule,
+    SharedModule
   ]
 })
 export class IndustriesModule { }

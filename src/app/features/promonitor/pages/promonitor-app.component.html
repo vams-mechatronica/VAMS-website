@@ -10,8 +10,8 @@
     <p class="lead">{{ page.lead }}</p>
     <p class="question"><strong>The question it answers:</strong> {{ page.question }}</p>
     <div class="cta-row">
-      <a class="btn primary" [routerLink]="['/contact']">Talk to Our Experts <i class="fa-solid fa-arrow-right"></i></a>
-      <a class="btn ghost" href="#screens">See the screens</a>
+      <a class="btn primary" [routerLink]="['/contact']" appTrackClick="Hero: Talk to Our Experts">Talk to Our Experts <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn ghost" href="#screens" appTrackClick>See the screens</a>
     </div>
   </div>
 </section>
@@ -78,8 +78,8 @@
     <h2>Ready to Connect Your Factory?</h2>
     <p>Talk to our team about machine connectivity, Industry 4.0 implementation and ProMonitor.</p>
     <div class="cta-row center">
-      <a class="btn primary" [routerLink]="['/contact']">Talk to Our Experts</a>
-      <a class="btn ghost light" [routerLink]="['/contact']" [queryParams]="{ topic: 'demo' }">Request a Demo</a>
+      <a class="btn primary" [routerLink]="['/contact']" appTrackClick="CTA band: Talk to Our Experts">Talk to Our Experts</a>
+      <a class="btn ghost light" [routerLink]="['/contact']" [queryParams]="{ topic: 'demo' }" appTrackClick>Request a Demo</a>
     </div>
   </div>
 </section>

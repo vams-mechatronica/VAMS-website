@@ -11,8 +11,8 @@
       </p>
 
       <div class="hero-cta">
-        <a [routerLink]="['/contact']" class="cta-btn">Talk to an Engineer <i class="fa-solid fa-arrow-right"></i></a>
-        <a class="ghost-btn" href="/assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf">
+        <a [routerLink]="['/contact']" class="cta-btn" appTrackClick>Talk to an Engineer <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="ghost-btn" href="/assets/brochure/ProMonitor-Flyer.pdf" download="ProMonitor-Brochure.pdf" appTrackClick>
           <i class="fa-solid fa-file-arrow-down"></i> Download Brochure
         </a>
       </div>
@@ -53,7 +53,7 @@
       </div>
       <h3>Condition Monitoring</h3>
       <p>Track vibration, temperature, current, oil quality and machine health parameters in real-time.</p>
-      <a class="learn-more" [routerLink]="['/products/predictive-maintenance/details']">Learn More →</a>
+      <a class="learn-more" [routerLink]="['/products/predictive-maintenance/details']" appTrackClick="Learn More: Condition Monitoring">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -62,7 +62,7 @@
       </div>
       <h3>AI Anomaly Detection</h3>
       <p>Detect unusual patterns and equipment deviations before they become critical failures.</p>
-      <a class="learn-more" href="#">Learn More →</a>
+      <a class="learn-more" href="#" appTrackClick="Learn More: AI Anomaly Detection">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -71,7 +71,7 @@
       </div>
       <h3>Failure Prediction</h3>
       <p>Get remaining useful life (RUL) predictions and early warnings for upcoming failures.</p>
-      <a class="learn-more" href="#">Learn More →</a>
+      <a class="learn-more" href="#" appTrackClick="Learn More: Failure Prediction">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -80,7 +80,7 @@
       </div>
       <h3>Auto-Scheduled Maintenance</h3>
       <p>Automatically create maintenance tasks based on predicted wear, cycles or load conditions.</p>
-      <a class="learn-more" href="#">Learn More →</a>
+      <a class="learn-more" href="#" appTrackClick="Learn More: Auto-Scheduled Maintenance">Learn More →</a>
     </div>
 
     <div class="feature">
@@ -89,7 +89,7 @@
       </div>
       <h3>Historical Insights</h3>
       <p>Analyze past failures, root causes and long-term trends for smarter decision-making.</p>
-      <a class="learn-more" href="#">Learn More →</a>
+      <a class="learn-more" href="#" appTrackClick="Learn More: Historical Insights">Learn More →</a>
     </div>
   </div>
 </section>
@@ -98,6 +98,6 @@
   <div class="cta-content">
     <h2>Predict Failures Before They Happen</h2>
     <p>Reduce downtime, extend equipment life and increase reliability through AI insights.</p>
-    <button class="cta">Schedule a Free Consultation</button>
+    <button class="cta" appTrackClick>Schedule a Free Consultation</button>
   </div>
 </section>

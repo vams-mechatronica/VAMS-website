@@ -9,8 +9,8 @@
         through our own platform, <strong>ProMonitor</strong>.
       </p>
       <div class="cta-row">
-        <a class="btn primary" routerLink="/promonitor">Explore ProMonitor</a>
-        <a class="btn ghost" routerLink="/contact">Contact Us</a>
+        <a class="btn primary" routerLink="/promonitor" appTrackClick>Explore ProMonitor</a>
+        <a class="btn ghost" routerLink="/contact" appTrackClick>Contact Us</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -79,7 +79,7 @@
         live data stream for connecting existing IT systems.
       </p>
       <p>We are also developing an AI-based job scheduler to support day-to-day planning and help prevent failures.</p>
-      <a class="text-link" routerLink="/promonitor">See how ProMonitor works <span aria-hidden="true">→</span></a>
+      <a class="text-link" routerLink="/promonitor" appTrackClick>See how ProMonitor works <span aria-hidden="true">→</span></a>
     </div>
     <app-screenshot-frame
       file="dashboard-overview.webp"
@@ -150,8 +150,8 @@
     <h2>Ready to Connect Your Factory?</h2>
     <p>Talk to our team about machine connectivity, Industry 4.0 implementation and ProMonitor.</p>
     <div class="cta-row center">
-      <a class="btn primary" routerLink="/contact">Talk to Our Experts</a>
-      <a class="btn ghost light" routerLink="/contact" [queryParams]="{ topic: 'demo' }">Request a Demo</a>
+      <a class="btn primary" routerLink="/contact" appTrackClick>Talk to Our Experts</a>
+      <a class="btn ghost light" routerLink="/contact" [queryParams]="{ topic: 'demo' }" appTrackClick>Request a Demo</a>
     </div>
   </div>
 </section>
