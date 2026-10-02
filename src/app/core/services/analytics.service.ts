@@ -28,7 +28,7 @@ export type ConsentState = 'granted' | 'denied';
  */
 @Injectable({ providedIn: 'root' })
 export class AnalyticsService {
-  private static readonly MEASUREMENT_ID = 'G-WBGMWPQ6XR';
+  private static readonly MEASUREMENT_ID = 'G-DF68NRRZMW';
 
   private initialized = false;
 
