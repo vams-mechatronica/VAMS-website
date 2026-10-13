@@ -89,13 +89,20 @@ export class AnalyticsService {
     this.gtag('event', name, params);
   }
 
-  private gtag(...args: unknown[]): void {
+  // `_args` exists only to type call sites; the body reads `arguments`.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  private gtag(..._args: unknown[]): void {
     const win = this.doc.defaultView;
     if (!win) return;
     // Self-sufficient on purpose: any caller (including a page-view fired
     // before init() has run, e.g. due to component init ordering) can safely
     // queue onto dataLayer — gtag.js processes the backlog once it loads.
     win.dataLayer = win.dataLayer || [];
-    win.dataLayer.push(args);
+    // Must push the real `arguments` object, not a rest-param array: gtag.js
+    // only recognises Arguments objects as gtag commands. A plain array is
+    // treated as a GTM method-call command and silently ignored, so nothing
+    // (consent, config, page views, events) would ever be sent.
+    // eslint-disable-next-line prefer-rest-params
+    win.dataLayer.push(arguments);
   }
 }
